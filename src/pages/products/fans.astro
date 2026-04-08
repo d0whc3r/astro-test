@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import MobileNav from '../../components/MobileNav.astro';
+import CookieBanner from '../../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Ventilation | EcoAir Plastics"
+  description="Industrial fans manufactured with technical plastics, suitable for working with highly corrosive gases in continuous service conditions."
+  landing={false}
+>
+  <div id="page-wrapper">
+    <SiteHeader alt={false} />
+
+    <section id="main" class="container">
+      <header>
+        <h2>Ventilation</h2>
+        <p>
+          Industrial fans manufactured with technical plastics, suitable for working<br />
+          with highly corrosive gases in permanent service conditions
+        </p>
+      </header>
+
+      <article class="box special">
+        <p>
+          Design and manufacture of fans for industrial ventilation applications, gas and fume
+          extraction. Our fans can work for any environment proposed to us given the versatility
+          of the materials used. Discover the Colasit fan range, a reference brand in European
+          industrial ventilation.
+        </p>
+      </article>
+
+      <div class="row" id="products">
+        <div class="col-4 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-fan accent3"></span>
+            <h3>Centrifugal Fans</h3>
+            <p>
+              Corrosion-resistant centrifugal fans. They can transport air and chemically
+              aggressive gases.
+            </p>
+            <ul class="actions special">
+              <li><a href="/products/fans/radial.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-4 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-wind accent4"></span>
+            <h3>Axial Fans</h3>
+            <p>
+              Plastic radial fans, suitable for connection to ventilation pipes in vertical or
+              horizontal arrangement.
+            </p>
+            <ul class="actions special">
+              <li><a href="/products/fans/duct.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-4 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-house accent5"></span>
+            <h3>Roof Fans</h3>
+            <p>
+              The roof fan with a robust housing made of plastic is weather resistant.
+            </p>
+            <ul class="actions special">
+              <li><a href="/products/fans/roof.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <article class="box">
+        <h3>Spare parts, after-sales, repairs and balancing services</h3>
+        <p>
+          At Ecoair Plastics we believe that product quality is not everything. Our fans are
+          robust and are prepared to work in high-stress conditions. Although everything has its
+          useful life. Proper use and maintenance of this equipment allows extending its useful
+          life.
+        </p>
+        <p>
+          With our inspection and maintenance services, we carry out a complete review of fans
+          and correction of possible work anomalies. We also carry out fan repairs in our
+          workshop, which after the work, we perform functional tests, thus guaranteeing a long
+          working life. We have a wide range of spare parts for all our fan series and for
+          Colasit.
+        </p>
+      </article>
+    </section>
+
+    <SiteFooter />
+    <MobileNav />
+    <CookieBanner />
+  </div>
+</Layout>

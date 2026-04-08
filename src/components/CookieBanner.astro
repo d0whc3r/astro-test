@@ -1,0 +1,52 @@
+---
+---
+<div id="cookie-banner">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <span data-i18n="cookies-title">This website uses own cookies and from third parties (Google Ads) for analytical purposes.
+      You can get more information in our</span>
+      <a href="/legal.html#politica-cookies" target="_blank" rel="noopener" data-i18n="cookies-link">Cookies Policy</a>.
+    </div>
+    <div class="cookie-actions">
+      <button id="cookie-accept" data-i18n="cookies-accept">Accept all</button>
+      <button id="cookie-reject" data-i18n="cookies-reject">Reject</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function getCookie(name: string): string | null {
+    const value = '; ' + document.cookie;
+    const parts = value.split('; ' + name + '=');
+    if (parts.length === 2) {
+      const last = parts.pop();
+      return last ? last.split(';').shift() ?? null : null;
+    }
+    return null;
+  }
+
+  function setCookie(name: string, val: string, days: number): void {
+    const maxAge = days * 24 * 60 * 60;
+    document.cookie = name + '=' + val + '; max-age=' + maxAge + '; path=/';
+  }
+
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+
+  if (banner) {
+    if (!getCookie('cookie-consent')) {
+      banner.style.display = 'block';
+    }
+
+    acceptBtn?.addEventListener('click', () => {
+      banner.style.display = 'none';
+      setCookie('cookie-consent', 'accepted', 365);
+    });
+
+    rejectBtn?.addEventListener('click', () => {
+      banner.style.display = 'none';
+      setCookie('cookie-consent', 'rejected', 365);
+    });
+  }
+</script>

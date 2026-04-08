@@ -1,0 +1,13 @@
+---
+interface Props {
+  imageSrc: string;
+  title: string;
+  subtitle: string;
+}
+
+const { imageSrc, title, subtitle } = Astro.props;
+---
+<section id="banner" style={`background-image: url('${imageSrc}');`}>
+  <h2 data-i18n="banner-title">{title}</h2>
+  <p data-i18n="banner-description">{subtitle}</p>
+</section>

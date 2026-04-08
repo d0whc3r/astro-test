@@ -4,32 +4,75 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  landing?: boolean;
+  ogImage?: string;
+  canonicalUrl?: string;
 }
 
 const {
   title = 'EcoAir Plastics | Environmental Solutions for Air Quality',
   description = 'EcoAir Plastics is a leading company in the production of plastic products for air filtration and purification in industry.',
+  landing = true,
+  ogImage = '/images/og-default.jpg',
+  canonicalUrl = 'https://ecoairplastics.com/',
 } = Astro.props;
+
+const siteUrl = canonicalUrl.startsWith('http') ? canonicalUrl : `https://ecoairplastics.com${canonicalUrl}`;
+const ogUrl = ogImage.startsWith('http') ? ogImage : `https://ecoairplastics.com${ogImage}`;
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="EcoAir Plastics, filtration, air quality, industrial ventilation, corrosive gases, turnkey systems" />
+    <meta
+      name="keywords"
+      content="EcoAir Plastics, filtration, air quality, industrial ventilation, corrosive gases, turnkey systems, technical plastics, industrial fans, industrial filters"
+    />
     <meta name="author" content="EcoAir Plastics S.L." />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- hreflang alternate links -->
+    <link rel="alternate" hreflang="es" href={`https://ecoairplastics.com${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="en" href={`https://ecoairplastics.com/en${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="ca" href={`https://ecoairplastics.com/ca${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://ecoairplastics.com${Astro.url.pathname}`} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="EcoAir Plastics" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="EcoAir Plastics - Environmental Solutions for Air Quality" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
+    <meta name="twitter:image:alt" content="EcoAir Plastics - Environmental Solutions for Air Quality" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+
     <!-- Font Awesome 6 Free (CDN) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     />
     <!-- Google Fonts: Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,9 +81,62 @@ const {
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- JSON-LD Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'EcoAir Plastics S.L.',
+        url: 'https://ecoairplastics.com',
+        logo: 'https://ecoairplastics.com/images/header-logo.png',
+        description: description,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Carrer Josep Bastús i Planas, 15',
+          addressLocality: 'Sant Joan Despí',
+          addressRegion: 'Barcelona',
+          addressCountry: 'ES',
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+34-937-934-856',
+          email: 'info@ecoairplastics.com',
+          contactType: 'customer service',
+          availableLanguage: ['Spanish', 'English', 'Catalan'],
+        },
+        sameAs: [
+          'https://www.instagram.com/ecoairplasticssl',
+          'https://www.linkedin.com/search/results/people/?keywords=ecoair%20plastics&origin=FACETED_SEARCH',
+        ],
+      })}
+    />
+
     <slot name="head" />
   </head>
-  <body class="landing">
-    <slot />
+  <body class={landing ? 'landing' : ''}>
+    <a href="#main-content" class="skip-link" data-skip-link> Skip to main content </a>
+    <div id="page-wrapper" role="document">
+      <slot />
+    </div>
+    <script>
+      import { translations, getLang } from '../i18n/translations';
+
+      function applyTranslations() {
+        const lang = getLang();
+        const t = translations[lang];
+        document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (key && t[key] !== undefined) {
+            el.innerHTML = t[key].replace(/\n/g, '<br>');
+          }
+        });
+        // Update <html lang> attribute
+        document.documentElement.lang = lang;
+      }
+
+      applyTranslations();
+    </script>
   </body>
 </html>

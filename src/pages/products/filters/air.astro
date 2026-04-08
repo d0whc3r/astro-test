@@ -1,0 +1,175 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import MobileNav from '../../../components/MobileNav.astro';
+import CookieBanner from '../../../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Gas Filtration | EcoAir Plastics"
+  description="Industrial gas filtration systems for neutralisation, odour treatment and VOC removal. Wet scrubbers, biofiltration and activated carbon filters."
+  landing={false}
+>
+  <div id="page-wrapper">
+    <SiteHeader alt={false} />
+
+    <section id="main" class="container">
+      <header>
+        <h2>Gas filtration</h2>
+        <p>Systems for gas neutralisation and odour treatment</p>
+      </header>
+
+      <article class="box special">
+        <p>
+          We offer several types of gas filters according to contaminant typology and operator
+          requirements. As engineering specialists in industrial gas treatment, each system is
+          designed for the specific source under study, ensuring it will operate according to
+          the established requirements.
+        </p>
+      </article>
+
+      <!-- Specifications -->
+      <article class="box">
+        <h3>Gas filter specifications</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-left">
+            <tbody>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark w-1/3">Capacities</th>
+                <td class="py-2">50 m³/h – 200,000 m³/h</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Type</th>
+                <td class="py-2">According to needs</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Packing</th>
+                <td class="py-2">Unordered – Structured</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Materials</th>
+                <td class="py-2">PP, PPs-el, PVDF, HDPE, PVC</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Accessories</th>
+                <td class="py-2">Dosing of reagents, auxiliary circuits, instrumentation</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Applications</th>
+                <td class="py-2">Treatment of acidic, alkaline, organic and other gases</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- SC model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/sc.jpg" alt="SC Wet Scrubber" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>SC</h3>
+            <p>
+              Wet scrubbing gas towers. We select the technology and design the filter for
+              each application. They are supplied in several configurations as required
+              (horizontal, vertical, flat, conical, etc.).
+            </p>
+            <p>
+              Our equipment is designed according to flow rate and contaminant characteristics.
+              They are supplied with all elements necessary for autonomous operation.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SO model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/so.jpg" alt="SO Biofilter" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>SO</h3>
+            <p>
+              Biofiltration is a technology for odour removal and VOC treatment, applicable
+              across a wide range of industrial processes where nuisance emissions occur.
+            </p>
+            <p>
+              Given the characteristics of many malodour-causing compounds, these emissions
+              often cannot be treated with a single effective process. For this reason, a
+              technology based on biological degradation is an effective solution where a
+              mixture of contaminants is present at low concentrations.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- EC model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/ec.jpg" alt="EC Activated Carbon Filter" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>EC</h3>
+            <p>
+              Compact filters designed mainly for gas deodorisation applications. Adsorption
+              technology is highly efficient for treating odours and a wide range of chemical
+              compounds.
+            </p>
+            <p>
+              We offer our own EC range: activated carbon adsorption filters, in several models
+              and sizes according to the flow to be treated. Supplied with or without fan,
+              pre-assembled and tested at our facilities.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Related products -->
+      <div class="row">
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-droplet accent4"></span>
+            <h3>Liquid filters</h3>
+            <p>Liquid filters designed to remove solid particles from liquids.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters/liquid.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-smog accent5"></span>
+            <h3>Dust filters</h3>
+            <p>Systems for separating solid particles and combustion fumes.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters/dust.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <article class="box special text-center">
+        <h3>All products</h3>
+        <p>Keep exploring our products</p>
+        <ul class="actions special">
+          <li><a href="/index.html#products" class="button alt">More information</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <SiteFooter />
+    <MobileNav />
+    <CookieBanner />
+  </div>
+</Layout>

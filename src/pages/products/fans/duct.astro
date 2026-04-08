@@ -1,0 +1,120 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import MobileNav from '../../../components/MobileNav.astro';
+import CookieBanner from '../../../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Axial Fans | EcoAir Plastics"
+  description="Colasit CRDV-R axial fans in technical plastics for industrial ventilation and corrosive gas extraction."
+  landing={false}
+>
+  <div id="page-wrapper">
+    <SiteHeader alt={false} />
+
+    <section id="main" class="container">
+      <header>
+        <h2>Axial Fans</h2>
+        <p>
+          Colasit CRDV-R radial fans can be installed in vertical or horizontal in-line piping systems.<br />
+          Available in various sizes and performances, manufactured with PPs, PPs-el or PVDF thermoplastics.
+        </p>
+      </header>
+
+      <!-- Specifications -->
+      <article class="box">
+        <h3>Axial Fans Specifications</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-left">
+            <tbody>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark w-1/3">Volume flow</th>
+                <td class="py-2">340 m³/h – 5,600 m³/h</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Static pressure</th>
+                <td class="py-2">50 Pa – 1,700 Pa</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Efficiency (tot. mech.)</th>
+                <td class="py-2">up to 42%</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Inlet and outlet ⌀</th>
+                <td class="py-2">200 – 315 mm</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Materials</th>
+                <td class="py-2">PPs, PPs-el</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Drive</th>
+                <td class="py-2">Direct</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Ex Protection</th>
+                <td class="py-2">Ex Protection Version available in ATEX zone 1 and 2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- CRDV-R model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/crdv-r.jpg" alt="CRDV-R Axial Fan" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>CRDV-R</h3>
+            <p>
+              Axial fans, manufactured with technical plastics, which guarantees operation with corrosive gases in
+              permanent service. Flow rates up to 5,600 m³/h.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Related products -->
+      <div class="row">
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-fan accent3"></span>
+            <h3>Centrifugal Fans</h3>
+            <p>Corrosion-resistant centrifugal fans. They can transport air and chemically aggressive gases.</p>
+            <ul class="actions special">
+              <li><a href="/products/fans/radial.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-house accent5"></span>
+            <h3>Roof Fans</h3>
+            <p>The roof fan with a robust housing made of plastic is weather resistant.</p>
+            <ul class="actions special">
+              <li><a href="/products/fans/roof.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <article class="box special text-center">
+        <h3>All Products</h3>
+        <p>Keep exploring our products</p>
+        <ul class="actions special">
+          <li><a href="/index.html#products" class="button alt">More information</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <SiteFooter />
+    <MobileNav />
+    <CookieBanner />
+  </div>
+</Layout>

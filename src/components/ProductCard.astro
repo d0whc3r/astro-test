@@ -1,0 +1,25 @@
+---
+interface Props {
+  image: string;
+  alt: string;
+  title: string;
+  description: string;
+  href: string;
+  linkText: string;
+  titleKey?: string;
+  descriptionKey?: string;
+  linkTextKey?: string;
+}
+
+const { image, alt, title, description, href, linkText, titleKey, descriptionKey, linkTextKey } = Astro.props;
+---
+<section class="box special alt">
+  <span class="image featured">
+    <img src={image} alt={alt} />
+  </span>
+  <h3 data-i18n={titleKey}>{title}</h3>
+  <p data-i18n={descriptionKey}>{description}</p>
+  <ul class="actions special">
+    <li><a href={href} class="button alt" data-i18n={linkTextKey}>{linkText}</a></li>
+  </ul>
+</section>

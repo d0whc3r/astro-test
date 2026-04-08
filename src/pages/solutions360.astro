@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import MobileNav from '../components/MobileNav.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Solutions 360º | EcoAir Plastics"
+  description="Comprehensive design of industrial facilities — from engineering and manufacturing to construction, commissioning and maintenance."
+  landing={false}
+>
+  <div id="page-wrapper">
+    <SiteHeader alt={false} />
+
+    <section id="main" class="container">
+      <header>
+        <h2>Solutions 360º</h2>
+        <p>
+          Development of reliable, efficient and custom-designed industrial facilities,<br />
+          with a comprehensive vision that covers the entire project lifecycle.
+        </p>
+      </header>
+
+      <!-- Phase steps -->
+      <article class="box special">
+        <h3>Comprehensive design of industrial facilities</h3>
+        <p>
+          At EcoAir Plastics we offer a complete comprehensive design service for industrial facilities, conceived to
+          meet the highest technical, regulatory and operational requirements of modern industry. We support our clients
+          through all project phases, from conceptual engineering to construction, commissioning and maintenance,
+          guaranteeing efficient, reliable solutions fully adapted to each production process.
+        </p>
+        <ol class="my-[2em] list-none p-0 flex flex-wrap justify-center gap-x-[2em] gap-y-[1em] counter-reset-[step]">
+          <li class="flex items-start gap-3 w-full max-w-[16em]">
+            <span class="icon major accent2 shrink-0 text-[0.6em]!">1</span>
+            <span><strong>Analysis</strong><br />Initial technical study and consultancy</span>
+          </li>
+          <li class="flex items-start gap-3 w-full max-w-[16em]">
+            <span class="icon major accent3 shrink-0 text-[0.6em]!">2</span>
+            <span><strong>Engineering</strong><br />Comprehensive system design</span>
+          </li>
+          <li class="flex items-start gap-3 w-full max-w-[16em]">
+            <span class="icon major accent4 shrink-0 text-[0.6em]!">3</span>
+            <span><strong>Manufacturing</strong><br />Production of equipment and systems</span>
+          </li>
+          <li class="flex items-start gap-3 w-full max-w-[16em]">
+            <span class="icon major accent5 shrink-0 text-[0.6em]!">4</span>
+            <span><strong>Construction</strong><br />Assembly and construction execution</span>
+          </li>
+          <li class="flex items-start gap-3 w-full max-w-[16em]">
+            <span class="icon major accent2 shrink-0 text-[0.6em]!">5</span>
+            <span><strong>Commissioning</strong><br />Testing and operational validation</span>
+          </li>
+          <li class="flex items-start gap-3 w-full max-w-[16em]">
+            <span class="icon major accent3 shrink-0 text-[0.6em]!">6</span>
+            <span><strong>Maintenance</strong><br />Support, improvement and upgrade</span>
+          </li>
+        </ol>
+      </article>
+
+      <div class="row">
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-drafting-compass accent3"></span>
+            <h3>Performance-oriented custom engineering</h3>
+            <p>
+              Our engineering team develops fully customised projects, based on a thorough analysis of client needs,
+              operating conditions and performance objectives. We integrate energy efficiency, safety, sustainability
+              and ease of maintenance criteria from the earliest design stages, ensuring robust facilities ready for the
+              long term.
+            </p>
+          </article>
+        </div>
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-industry accent4"></span>
+            <h3>Turnkey projects</h3>
+            <p>
+              We specialise in turnkey systems, taking on full project management as the single point of contact. We
+              coordinate all disciplines involved — engineering, manufacturing, assembly, automation and control — to
+              deliver a fully operational solution, meeting deadlines, budgets and required quality standards.
+            </p>
+            <p>
+              This approach allows our clients to reduce risk, optimise resources and focus on their core business, with
+              the confidence that the project is managed in an integrated and professional manner.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-wrench accent5"></span>
+            <h3>Upgrade and renovation of existing facilities</h3>
+            <p>
+              In addition to designing new facilities, we have extensive experience in upgrading, improving and
+              renovating existing industrial systems. We analyse facilities in operation to identify opportunities for
+              optimisation, capacity increase, efficiency improvement or compliance with new regulations, minimising
+              downtime and ensuring a safe and controlled transition.
+            </p>
+          </article>
+        </div>
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-hard-hat accent2"></span>
+            <h3>Construction, commissioning and maintenance</h3>
+            <p>
+              Our service covers the execution and construction of facilities, as well as technical supervision during
+              assembly and commissioning. Subsequently, we offer preventive and corrective maintenance plans, aimed at
+              maximising system availability and extending their useful life.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Keep exploring -->
+      <article class="box special features">
+        <div class="features-row py-[25px]">
+          <section>
+            <span class="icon solid major fas fa-search accent3"></span>
+            <h3 class="mt-[15px]">Keep exploring</h3>
+          </section>
+          <section>
+            <p>
+              We are a team with deep knowledge and experience in the design and manufacture of thermoplastic equipment.
+              We present our range of commercially available products and the different industries where we can help
+              you.
+            </p>
+          </section>
+        </div>
+        <ul class="actions special mt-[20px]">
+          <li><a href="/index.html#products" class="button alt">Products</a></li>
+          <li><a href="/index.html#industries" class="button alt">Industries</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <SiteFooter />
+    <MobileNav />
+    <CookieBanner />
+  </div>
+</Layout>

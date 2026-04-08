@@ -1,0 +1,101 @@
+---
+interface Industry {
+  icon: string;
+  accent: string;
+  titleKey: string;
+  titleDefault: string;
+  descKey: string;
+  descDefault: string;
+}
+
+const industries: Industry[] = [
+  {
+    icon: 'fa-tractor',
+    accent: 'accent2',
+    titleKey: 'industries-farming-title',
+    titleDefault: 'Agriculture, aquaculture and livestock',
+    descKey: 'industries-farming-description',
+    descDefault:
+      'Storage tanks for solids and liquids, enclosures and breeding ponds, liquid transfer, controlled product dosing, dust aspiration and filtration systems, and more.',
+  },
+  {
+    icon: 'fa-car',
+    accent: 'accent3',
+    titleKey: 'industries-automobile-title',
+    titleDefault: 'Automotive industry',
+    descKey: 'industries-automobile-description',
+    descDefault: 'Filtration of gases and particles from painting, welding, etc.',
+  },
+  {
+    icon: 'fa-utensils',
+    accent: 'accent4',
+    titleKey: 'industries-food-title',
+    titleDefault: 'Food and beverage industry',
+    descKey: 'industries-food-description',
+    descDefault:
+      'Deodorisation of bad odour precursors and other contaminants generated throughout the processing or conversion of food products and by-products.',
+  },
+  {
+    icon: 'fa-shirt',
+    accent: 'accent5',
+    titleKey: 'industries-textile-title',
+    titleDefault: 'Textile and garment industry',
+    descKey: 'industries-textile-description',
+    descDefault: 'Aspiration and recovery of valuable products commonly used in the tanning industry.',
+  },
+  {
+    icon: 'fa-flask',
+    accent: 'accent2',
+    titleKey: 'industries-chemical-title',
+    titleDefault: 'Chemical industry',
+    descKey: 'industries-chemical-description',
+    descDefault:
+      'Equipment adapted to the needs of each process and designed to meet the most stringent requirements. Use of specific high-purity materials, for ATEX atmospheres, etc.',
+  },
+  {
+    icon: 'fa-gears',
+    accent: 'accent3',
+    titleKey: 'industries-metallurgy-title',
+    titleDefault: 'Metallurgical and machinery industry',
+    descKey: 'industries-metallurgy-description',
+    descDefault:
+      'Control of emissions generated during part treatment processes. Extraction and filtration installations for all types of gases. Tanks and vats for surface treatment.',
+  },
+  {
+    icon: 'fa-helmet-safety',
+    accent: 'accent4',
+    titleKey: 'industries-construction-title',
+    titleDefault: 'Construction',
+    descKey: 'industries-construction-description',
+    descDefault: 'Storage tanks, dust aspiration and filtration systems. Discharge silos, conveyor belts, etc.',
+  },
+  {
+    icon: 'fa-leaf',
+    accent: 'accent5',
+    titleKey: 'industries-energy-title',
+    titleDefault: 'Energy and green industry',
+    descKey: 'industries-energy-description',
+    descDefault: 'Equipment for production processes and the processing of products such as biogas and slurry.',
+  },
+];
+
+// Group industries into rows of 2
+const rows = Array.from({ length: Math.ceil(industries.length / 2) }, (_, i) =>
+  industries.slice(i * 2, i * 2 + 2),
+);
+---
+<section id="industries" class="box special features">
+  {
+    rows.map((row) => (
+      <div class="features-row">
+        {row.map((industry) => (
+          <section>
+            <span class={`icon solid major fas ${industry.icon} ${industry.accent}`} />
+            <h3 data-i18n={industry.titleKey}>{industry.titleDefault}</h3>
+            <p data-i18n={industry.descKey}>{industry.descDefault}</p>
+          </section>
+        ))}
+      </div>
+    ))
+  }
+</section>

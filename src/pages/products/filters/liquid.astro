@@ -1,0 +1,145 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import MobileNav from '../../../components/MobileNav.astro';
+import CookieBanner from '../../../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Liquid Filtration | EcoAir Plastics"
+  description="Industrial liquid filters for retention and recovery of droplets, condensates and submicron particles."
+  landing={false}
+>
+  <div id="page-wrapper">
+    <SiteHeader alt={false} />
+
+    <section id="main" class="container">
+      <header>
+        <h2>Liquid filtration</h2>
+        <p>
+          Equipment for filtering liquid particles.<br />
+          Retention and recovery of droplets and condensates
+        </p>
+      </header>
+
+      <article class="box special">
+        <p>
+          In many gas duct applications, droplet entrainment or condensation occurs. We offer several filter models for
+          different mounting configurations: horizontal or vertical piping, or as a droplet trap terminal, above stacks.
+        </p>
+      </article>
+
+      <!-- Specifications -->
+      <article class="box">
+        <h3>Liquid filter specifications</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-left">
+            <tbody>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark w-1/3">Capacities</th>
+                <td class="py-2">50 m³/h – 100,000 m³/h</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Type</th>
+                <td class="py-2">Horizontal</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Packing</th>
+                <td class="py-2">According to design</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Materials</th>
+                <td class="py-2">PP, PPs-el, PVDF, HDPE, PVC</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Accessories</th>
+                <td class="py-2">Dosing of reagents, auxiliary circuits, instrumentation</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Applications</th>
+                <td class="py-2">
+                  Retention of particles and mists (0.1–10 μm), Recovery of valuable liquid products, Removal of
+                  condensates
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- ASS model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/ass.jpg" alt="ASS Liquid Filter" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>ASS</h3>
+            <p>
+              The ASS model is a high-efficiency filtration unit. Designed to achieve high separation performance for
+              submicron particles. Configurable in several stages according to separation requirements.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- RG model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/rg.jpg" alt="RG Liquid Filter" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>RG</h3>
+            <p>
+              Retainer (RG series) for droplet removal in piping. Commonly used to prevent liquid accumulation due to
+              entrainment or condensation. Can also be installed as a droplet terminal to prevent particle emissions
+              from stacks.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Related products -->
+      <div class="row">
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-wind accent3"></span>
+            <h3>Gas filters</h3>
+            <p>Systems for gas neutralisation and odour treatment.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters/air.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-smog accent5"></span>
+            <h3>Dust filters</h3>
+            <p>Systems for separating solid particles and combustion fumes.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters/dust.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <article class="box special text-center">
+        <h3>All products</h3>
+        <p>Keep exploring our products</p>
+        <ul class="actions special">
+          <li><a href="/index.html#products" class="button alt">More information</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <SiteFooter />
+    <MobileNav />
+    <CookieBanner />
+  </div>
+</Layout>

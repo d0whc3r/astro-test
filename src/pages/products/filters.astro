@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import MobileNav from '../../components/MobileNav.astro';
+import CookieBanner from '../../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Filtration | EcoAir Plastics"
+  description="Industrial filters for gas, liquid and dust treatment. Filtration solutions for the industrial sector."
+  landing={false}
+>
+  <div id="page-wrapper">
+    <SiteHeader alt={false} />
+
+    <section id="main" class="container">
+      <header>
+        <h2>Filtration</h2>
+        <p>Equipment for filtering gases, liquids and dust.</p>
+      </header>
+
+      <article class="box special">
+        <p>
+          Industrial filters for gas, liquid and dust treatment. Filtration solutions for the industrial sector. We
+          offer several types of gas filters according to contaminant typology and operator requirements. As engineering
+          specialists in industrial gas treatment, each system is designed for the specific source under study, ensuring
+          it will operate according to the established requirements.
+        </p>
+      </article>
+
+      <div class="row" id="products">
+        <div class="col-4 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-wind accent3"></span>
+            <h3>Air filters</h3>
+            <p>Systems for gas neutralisation and odour treatment.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters/air.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-4 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-droplet accent4"></span>
+            <h3>Liquid filters</h3>
+            <p>Equipment for filtering liquid particles. Retention and recovery of droplets and condensates.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters/liquid.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-4 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-smog accent5"></span>
+            <h3>Dust filters</h3>
+            <p>Systems for separating solid particles and combustion fumes.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters/dust.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <article class="box">
+        <h3>Spare parts, after-sales services, repair and balancing</h3>
+        <p>
+          At Ecoair Plastics we believe that product quality is not everything. Our filters are robust and built to work
+          under high-stress conditions. Yet everything has a service life. Proper use and maintenance of this equipment
+          helps extend it.
+        </p>
+        <p>
+          With our inspection and maintenance services we carry out a full review of filters and correct any operational
+          issues. We also repair filters in our workshop and, after the work, run functional tests to ensure a long
+          working life.
+        </p>
+      </article>
+    </section>
+
+    <SiteFooter />
+    <MobileNav />
+    <CookieBanner />
+  </div>
+</Layout>

@@ -1,0 +1,140 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import MobileNav from '../../../components/MobileNav.astro';
+import CookieBanner from '../../../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Roof Fans | EcoAir Plastics"
+  description="Colasit CRDV-D and CDVA roof fans with robust weather-resistant plastic housings for industrial installations."
+  landing={false}
+>
+  <div id="page-wrapper">
+    <SiteHeader alt={false} />
+
+    <section id="main" class="container">
+      <header>
+        <h2>Roof Fans</h2>
+        <p>
+          Robust weather-resistant plastic housing roof fans.<br />
+          Available in various sizes and performances, manufactured with PPs thermoplastics.
+        </p>
+      </header>
+
+      <!-- Specifications -->
+      <article class="box">
+        <h3>Roof Fans Specifications</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-left">
+            <tbody>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark w-1/3">Volume flow</th>
+                <td class="py-2">340 m³/h – 5,600 m³/h</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Static pressure</th>
+                <td class="py-2">50 Pa – 1,700 Pa</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Efficiency (tot. mech.)</th>
+                <td class="py-2">up to 42%</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Inlet and outlet ⌀</th>
+                <td class="py-2">200 – 315 mm</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Materials</th>
+                <td class="py-2">PPs, PPs-el</td>
+              </tr>
+              <tr class="border-b border-border">
+                <th class="py-2 pr-4 font-semibold text-dark">Drive</th>
+                <td class="py-2">Direct</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- CRDV-D model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/crdv-d.jpg" alt="CRDV-D Roof Fan" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>CRDV-D</h3>
+            <p>
+              The Colasit CRDV-D roof fan has a robust housing made of weather-resistant plastic. It is equipped with a
+              standard three-phase motor according to IEC, can be adjusted in one or several stages and optionally can
+              be upgraded with a frequency converter. The motor is separated from the exhaust air flow and is therefore
+              protected against corrosion.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- CDVA model -->
+      <div class="row">
+        <div class="col-4 col-12-narrower">
+          <div class="image featured">
+            <img src="https://ecoairplastics.com/images/cdva.jpg" alt="CDVA Roof Fan" />
+          </div>
+        </div>
+        <div class="col-8 col-12-narrower">
+          <article class="box">
+            <h3>CDVA</h3>
+            <p>
+              The Colasit CDVA roof fan has a robust, joint-free polyester housing made of weather-resistant plastic.
+              This roof fan features a standard three-phase motor according to IEC, can be adjusted in one or several
+              stages and optionally can be upgraded with a frequency converter. The motor is separated from the exhaust
+              air flow and is therefore protected against corrosion.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Related products -->
+      <div class="row">
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-fan accent3"></span>
+            <h3>Centrifugal Fans</h3>
+            <p>Corrosion-resistant centrifugal fans. They can transport air and chemically aggressive gases.</p>
+            <ul class="actions special">
+              <li><a href="/products/fans/radial.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col-6 col-12-narrower">
+          <article class="box">
+            <span class="icon solid major fas fa-wind accent4"></span>
+            <h3>Axial Fans</h3>
+            <p>
+              Plastic radial fans, suitable for connection to ventilation pipes in vertical or horizontal arrangement.
+            </p>
+            <ul class="actions special">
+              <li><a href="/products/fans/duct.html" class="button alt">More information</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <article class="box special text-center">
+        <h3>All Products</h3>
+        <p>Keep exploring our products</p>
+        <ul class="actions special">
+          <li><a href="/index.html#products" class="button alt">More information</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <SiteFooter />
+    <MobileNav />
+    <CookieBanner />
+  </div>
+</Layout>
