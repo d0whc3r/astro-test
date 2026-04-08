@@ -1,4 +1,5 @@
 ---
+import NavLink from './NavLink.astro';
 import BaseImage from './BaseImage.astro';
 
 interface Props {
@@ -9,9 +10,9 @@ const { alt = true } = Astro.props;
 
 <header id="header" class={alt ? 'alt' : ''} role="banner">
   <h1>
-    <a href="/" aria-label="EcoAir Plastics - Home">
+    <NavLink href="/" aria-label="EcoAir Plastics - Home">
       <BaseImage id="header-logo" src="/images/header-logo.png" alt="EcoAir Plastics logo" width={180} height={45} />
-    </a>
+    </NavLink>
   </h1>
   <nav id="nav" aria-label="Main navigation">
     <ul>
@@ -30,43 +31,53 @@ const { alt = true } = Astro.props;
           &nbsp;Menu
         </a>
         <ul class="dropotron level-0" role="menu">
-          <li role="menuitem"><a href="/" data-i18n="home">Home</a></li>
+          <li role="menuitem"><NavLink href="/" data-i18n="home">Home</NavLink></li>
           <li class="li-opener" role="menuitem">
-            <a
-              href="/products/fans"
+            <NavLink
+              href="/products/fans/"
               data-i18n="products-fans-title"
               role="button"
               aria-haspopup="true"
               aria-expanded="false"
             >
               Ventilation
-            </a>
+            </NavLink>
             <ul class="dropotron level-1 left-auto! right-full! top-0!" role="menu">
-              <li role="menuitem"><a href="/products/fans/duct" data-i18n="products-fans-duct">Axial</a></li>
-              <li role="menuitem"><a href="/products/fans/radial" data-i18n="products-fans-radial">Centrifugal</a></li>
-              <li role="menuitem"><a href="/products/fans/roof" data-i18n="products-fans-roof">Roof</a></li>
+              <li role="menuitem">
+                <NavLink href="/products/fans/duct/" data-i18n="products-fans-duct">Axial</NavLink>
+              </li>
+              <li role="menuitem">
+                <NavLink href="/products/fans/radial/" data-i18n="products-fans-radial">Centrifugal</NavLink>
+              </li>
+              <li role="menuitem">
+                <NavLink href="/products/fans/roof/" data-i18n="products-fans-roof">Roof</NavLink>
+              </li>
             </ul>
           </li>
           <li class="li-opener" role="menuitem">
-            <a
-              href="/products/filters"
+            <NavLink
+              href="/products/filters/"
               data-i18n="products-filters-title"
               role="button"
               aria-haspopup="true"
               aria-expanded="false"
             >
               Filtration
-            </a>
+            </NavLink>
             <ul class="dropotron level-1 left-auto! right-full! top-0!" role="menu">
-              <li role="menuitem"><a href="/products/filters/dust" data-i18n="products-filters-dust">Particles</a></li>
               <li role="menuitem">
-                <a href="/products/filters/liquid" data-i18n="products-filters-liquid">Liquids</a>
+                <NavLink href="/products/filters/dust/" data-i18n="products-filters-dust">Particles</NavLink>
               </li>
-              <li role="menuitem"><a href="/products/filters/air" data-i18n="products-filters-air">Gases</a></li>
+              <li role="menuitem">
+                <NavLink href="/products/filters/liquid/" data-i18n="products-filters-liquid">Liquids</NavLink>
+              </li>
+              <li role="menuitem">
+                <NavLink href="/products/filters/air/" data-i18n="products-filters-air">Gases</NavLink>
+              </li>
             </ul>
           </li>
-          <li role="menuitem"><a href="/solutions360" data-i18n="solutions360">Solutions 360º</a></li>
-          <li role="menuitem"><a href="/team" data-i18n="about">About Us</a></li>
+          <li role="menuitem"><NavLink href="/solutions360/" data-i18n="solutions360">Solutions 360º</NavLink></li>
+          <li role="menuitem"><NavLink href="/team/" data-i18n="about">About Us</NavLink></li>
         </ul>
       </li>
     </ul>

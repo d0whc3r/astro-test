@@ -1,5 +1,6 @@
 ---
 import BaseImage from './BaseImage.astro';
+import NavLink from './NavLink.astro';
 
 interface Props {
   image: string;
@@ -23,6 +24,6 @@ const { image, alt, title, description, href, linkText, titleKey, descriptionKey
   <h3 id={`product-${titleKey || title}`} data-i18n={titleKey}>{title}</h3>
   <p data-i18n={descriptionKey}>{description}</p>
   <ul class="actions special">
-    <li><a href={href} class="button alt" data-i18n={linkTextKey}>{linkText}</a></li>
+    <li><NavLink href={href} class="button alt" data-i18n={linkTextKey}>{linkText}</NavLink></li>
   </ul>
 </section>

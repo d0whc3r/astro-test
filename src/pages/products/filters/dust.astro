@@ -1,4 +1,5 @@
 ---
+import NavLink from '../../../components/NavLink.astro';
 import Layout from '../../../layouts/Layout.astro';
 import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
@@ -63,7 +64,7 @@ import CookieBanner from '../../../components/CookieBanner.astro';
             <h3>Gas filters</h3>
             <p>Systems for gas neutralization and odor control.</p>
             <ul class="actions special">
-              <li><a href="/products/filters/air.html" class="button alt">More information</a></li>
+              <li><NavLink href="/products/filters/air/" class="button alt">More information</NavLink></li>
             </ul>
           </article>
         </div>
@@ -73,7 +74,7 @@ import CookieBanner from '../../../components/CookieBanner.astro';
             <h3>Liquid filters</h3>
             <p>Liquid filters designed for the removal of solid particles from liquids.</p>
             <ul class="actions special">
-              <li><a href="/products/filters/liquid.html" class="button alt">More information</a></li>
+              <li><NavLink href="/products/filters/liquid/" class="button alt">More information</NavLink></li>
             </ul>
           </article>
         </div>
@@ -83,7 +84,7 @@ import CookieBanner from '../../../components/CookieBanner.astro';
         <h3>All products</h3>
         <p>Explore our products</p>
         <ul class="actions special">
-          <li><a href="/index.html#products" class="button alt">More information</a></li>
+          <li><NavLink href="/index.html#products" class="button alt">More information</NavLink></li>
         </ul>
       </article>
     </section>

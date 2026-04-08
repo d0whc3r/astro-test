@@ -1,5 +1,5 @@
 ---
-
+import NavLink from './NavLink.astro';
 ---
 
 <div id="navButton" role="button" aria-label="Toggle navigation menu">
@@ -8,38 +8,62 @@
 
 <div id="navPanel" role="navigation" aria-label="Mobile navigation">
   <nav>
-    <a class="link depth-0" href="?lang=es"><span class="indent-0"></span><span>es</span></a>
-    <a class="link depth-0" href="?lang=en"><span class="indent-0"></span><span>en</span></a>
-    <a class="link depth-0" href="?lang=ca"><span class="indent-0"></span><span>ca</span></a>
-    <a class="link depth-1" href="/"><span class="indent-1"></span><span data-i18n="home">Home</span></a>
-    <a class="link depth-1" href="/products/fans"
-      ><span class="indent-1"></span><span data-i18n="products-fans-title">Ventilation</span></a
+    <a class="link depth-0" href="?lang=es">
+      <span class="indent-0"></span>
+      <span>es</span></a
     >
-    <a class="link depth-2" href="/products/fans/duct"
-      ><span class="indent-2"></span><span data-i18n="products-fans-duct">Axial</span></a
+    <a class="link depth-0" href="?lang=en">
+      <span class="indent-0"></span>
+      <span>en</span></a
     >
-    <a class="link depth-2" href="/products/fans/radial"
-      ><span class="indent-2"></span><span data-i18n="products-fans-radial">Centrifugal</span></a
+    <a class="link depth-0" href="?lang=ca">
+      <span class="indent-0"></span>
+      <span>ca</span></a
     >
-    <a class="link depth-2" href="/products/fans/roof"
-      ><span class="indent-2"></span><span data-i18n="products-fans-roof">Roof</span></a
+    <NavLink class="link depth-1" href="/">
+      <span class="indent-1"></span>
+      <span data-i18n="home">Home</span></NavLink
     >
-    <a class="link depth-1" href="/products/filters"
-      ><span class="indent-1"></span><span data-i18n="products-filters-title">Filtration</span></a
+    <NavLink class="link depth-1" href="/products/fans/">
+      <span class="indent-1"></span>
+      <span data-i18n="products-fans-title">Ventilation</span></NavLink
     >
-    <a class="link depth-2" href="/products/filters/dust"
-      ><span class="indent-2"></span><span data-i18n="products-filters-dust">Particles</span></a
+    <NavLink class="link depth-2" href="/products/fans/duct/">
+      <span class="indent-2"></span>
+      <span data-i18n="products-fans-duct">Axial</span></NavLink
     >
-    <a class="link depth-2" href="/products/filters/liquid"
-      ><span class="indent-2"></span><span data-i18n="products-filters-liquid">Liquids</span></a
+    <NavLink class="link depth-2" href="/products/fans/radial/">
+      <span class="indent-2"></span>
+      <span data-i18n="products-fans-radial">Centrifugal</span></NavLink
     >
-    <a class="link depth-2" href="/products/filters/air"
-      ><span class="indent-2"></span><span data-i18n="products-filters-air">Gases</span></a
+    <NavLink class="link depth-2" href="/products/fans/roof/">
+      <span class="indent-2"></span>
+      <span data-i18n="products-fans-roof">Roof</span></NavLink
     >
-    <a class="link depth-1" href="/solutions360"
-      ><span class="indent-1"></span><span data-i18n="solutions360">Solutions 360º</span></a
+    <NavLink class="link depth-1" href="/products/filters/">
+      <span class="indent-1"></span>
+      <span data-i18n="products-filters-title">Filtration</span></NavLink
     >
-    <a class="link depth-1" href="/team"><span class="indent-1"></span><span data-i18n="about">About Us</span></a>
+    <NavLink class="link depth-2" href="/products/filters/dust/">
+      <span class="indent-2"></span>
+      <span data-i18n="products-filters-dust">Particles</span></NavLink
+    >
+    <NavLink class="link depth-2" href="/products/filters/liquid/">
+      <span class="indent-2"></span>
+      <span data-i18n="products-filters-liquid">Liquids</span></NavLink
+    >
+    <NavLink class="link depth-2" href="/products/filters/air/">
+      <span class="indent-2"></span>
+      <span data-i18n="products-filters-air">Gases</span></NavLink
+    >
+    <NavLink class="link depth-1" href="/solutions360/">
+      <span class="indent-1"></span>
+      <span data-i18n="solutions360">Solutions 360º</span></NavLink
+    >
+    <NavLink class="link depth-1" href="/team/">
+      <span class="indent-1"></span>
+      <span data-i18n="about">About Us</span></NavLink
+    >
   </nav>
 </div>
 
@@ -93,7 +117,7 @@
 
   // Close panel when a link is clicked
   if (navPanel) {
-    navPanel.querySelectorAll('a').forEach((link) => {
+    navPanel.querySelectorAll('a, [href]').forEach((link) => {
       link.addEventListener('click', () => closePanel());
     });
   }

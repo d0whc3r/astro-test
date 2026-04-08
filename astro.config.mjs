@@ -10,7 +10,7 @@ export default defineConfig({
   base: "/astro-test",
   integrations: [sitemap()],
   build: {
-    format: "file",
+    format: "directory",
   },
   vite: {
     plugins: [tailwindcss()],

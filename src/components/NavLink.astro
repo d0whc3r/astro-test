@@ -1,0 +1,15 @@
+---
+/**
+ * Link component that automatically prepends BASE_URL
+ * to absolute paths for correct resolution when deployed to subpaths.
+ */
+
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  href: string;
+}
+
+const { href: hrefProp, ...rest } = Astro.props;
+const href = hrefProp.startsWith('/') ? import.meta.env.BASE_URL + hrefProp : hrefProp;
+---
+
+<a href={href} {...rest}><slot /></a>

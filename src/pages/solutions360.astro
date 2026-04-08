@@ -1,4 +1,5 @@
 ---
+import NavLink from '../components/NavLink.astro';
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -132,8 +133,8 @@ import CookieBanner from '../components/CookieBanner.astro';
           </section>
         </div>
         <ul class="actions special mt-[20px]">
-          <li><a href="/index.html#products" class="button alt">Products</a></li>
-          <li><a href="/index.html#industries" class="button alt">Industries</a></li>
+          <li><NavLink href="/index.html#products" class="button alt">Products</NavLink></li>
+          <li><NavLink href="/index.html#industries" class="button alt">Industries</NavLink></li>
         </ul>
       </article>
     </section>

@@ -1,4 +1,5 @@
 ---
+import NavLink from '../../../components/NavLink.astro';
 import Layout from '../../../layouts/Layout.astro';
 import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
@@ -114,7 +115,7 @@ import BaseImage from '../../../components/BaseImage.astro';
             <h3>Gas filters</h3>
             <p>Systems for gas neutralisation and odour treatment.</p>
             <ul class="actions special">
-              <li><a href="/products/filters/air.html" class="button alt">More information</a></li>
+              <li><NavLink href="/products/filters/air/" class="button alt">More information</NavLink></li>
             </ul>
           </article>
         </div>
@@ -124,7 +125,7 @@ import BaseImage from '../../../components/BaseImage.astro';
             <h3>Dust filters</h3>
             <p>Systems for separating solid particles and combustion fumes.</p>
             <ul class="actions special">
-              <li><a href="/products/filters/dust.html" class="button alt">More information</a></li>
+              <li><NavLink href="/products/filters/dust/" class="button alt">More information</NavLink></li>
             </ul>
           </article>
         </div>
@@ -134,7 +135,7 @@ import BaseImage from '../../../components/BaseImage.astro';
         <h3>All products</h3>
         <p>Keep exploring our products</p>
         <ul class="actions special">
-          <li><a href="/index.html#products" class="button alt">More information</a></li>
+          <li><NavLink href="/index.html#products" class="button alt">More information</NavLink></li>
         </ul>
       </article>
     </section>
