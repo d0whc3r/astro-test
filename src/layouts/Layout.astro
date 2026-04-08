@@ -134,7 +134,7 @@ const ogUrl = ogImage.startsWith('http') ? ogImage : new URL(import.meta.env.BAS
       })}
     />
     <!-- Preload LCP image when this layout is used as a landing page -->
-    {landing && <link rel="preload" as="image" href={ogUrl} />}
+    {landing && <link rel="preload" as="image" href={ogImage} fetchpriority="high" />}
 
     <!-- Inline translations as JSON so client-side code doesn't import server modules -->
     <script id="__TRANSLATIONS__" type="application/json" set:html={JSON.stringify(translationsData)} />

@@ -96,9 +96,13 @@ const { alt = true } = Astro.props;
   const headerEl = document.getElementById('header');
   const bannerEl = document.getElementById('banner');
   let scrolled = false;
+  let bannerHeight = 0;
 
   if (headerEl && bannerEl) {
-    const bannerHeight = bannerEl.offsetHeight;
+    // Defer layout read using requestAnimationFrame to avoid forced reflow
+    requestAnimationFrame(() => {
+      bannerHeight = bannerEl.getBoundingClientRect().height;
+    });
 
     window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
