@@ -1,7 +1,7 @@
-import type { APIRoute } from 'astro';
+import type { APIRoute } from "astro";
 
 export const GET: APIRoute = ({ site }) => {
-  const sitemapUrl = new URL('/sitemap-index.xml', site).href;
+  const sitemapUrl = new URL("/sitemap-index.xml", site).href;
 
   return new Response(
     `User-agent: *
@@ -11,7 +11,7 @@ Sitemap: ${sitemapUrl}
 `,
     {
       headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
+        "Content-Type": "text/plain; charset=utf-8",
       },
     },
   );

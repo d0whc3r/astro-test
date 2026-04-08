@@ -10,13 +10,8 @@ export default {
   env: {
     builtin: true,
   },
+  ignorePatterns: ["**/*.astro", "**/*.vue", "dist/**", "node_modules/**", ".astro/**"],
   overrides: [
-    {
-      files: ["*.astro"],
-      rules: {
-        "unicorn/prefer-node-protocol": "off",
-      },
-    },
     {
       files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
       rules: {},

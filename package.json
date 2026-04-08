@@ -1,12 +1,12 @@
 {
   "name": "ecoair-plastics",
-  "description": "Clone of ecoairplastics.com built with Astro, Tailwind CSS, and AI-assisted development",
   "version": "0.0.1",
-  "type": "module",
+  "description": "Clone of ecoairplastics.com built with Astro, Tailwind CSS, and AI-assisted development",
   "repository": {
     "type": "git",
     "url": "git@github.com:d0whc3r/astro-test.git"
   },
+  "type": "module",
   "scripts": {
     "astro": "astro",
     "build": "astro build",
@@ -31,5 +31,6 @@
   },
   "engines": {
     "node": ">=22.12.0"
-  }
+  },
+  "packageManager": "pnpm@10.28.1"
 }
