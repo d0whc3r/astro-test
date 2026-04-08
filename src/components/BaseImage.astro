@@ -4,13 +4,35 @@
  * to absolute paths for correct resolution when deployed to subpaths.
  */
 
+import dims from '../lib/image-dimensions.json';
+
 interface Props extends astroHTML.JSX.ImgHTMLAttributes {
   src: string;
   alt: string;
+  loading?: 'lazy' | 'eager';
+  priority?: boolean;
 }
 
-const { src: srcProp, alt, ...rest } = Astro.props;
-const src = srcProp.startsWith('/') ? import.meta.env.BASE_URL + srcProp : srcProp;
+const { src: srcProp, alt, loading = 'lazy', priority = false, ...rest } = Astro.props;
+const src = srcProp && srcProp.startsWith('/') ? import.meta.env.BASE_URL + srcProp : srcProp;
+
+// Try to infer dimensions from generated mapping when width/height not provided
+const dimsMap: Record<string, { width: number; height: number }> = dims as any;
+const inferred = srcProp && dimsMap[srcProp] ? dimsMap[srcProp] : undefined;
+const widthAttr = (Astro.props.width as number) || (inferred && inferred.width);
+const heightAttr = (Astro.props.height as number) || (inferred && inferred.height);
+const computedStyle = widthAttr && heightAttr ? `aspect-ratio: ${widthAttr}/${heightAttr}` : undefined;
+const computedAttrs: Record<string, any> = { ...rest };
+if (!('width' in computedAttrs) && widthAttr) computedAttrs.width = widthAttr;
+if (!('height' in computedAttrs) && heightAttr) computedAttrs.height = heightAttr;
 ---
 
-<img src={src} alt={alt} {...rest} />
+<img
+  src={src}
+  alt={alt}
+  loading={priority ? 'eager' : loading}
+  decoding="async"
+  fetchpriority={priority ? 'high' : undefined}
+  style={computedStyle}
+  {...computedAttrs}
+/>

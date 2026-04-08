@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { translations as translationsData } from '../i18n/translations';
 
 interface Props {
   title?: string;
@@ -17,8 +18,8 @@ const {
   canonicalUrl = '/',
 } = Astro.props;
 
-const siteUrl = canonicalUrl === '/' ? Astro.site!.href : new URL(canonicalUrl, Astro.site!).href;
-const ogUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site!).href;
+const siteUrl = Astro.url.href;
+const ogUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.url.origin).href;
 ---
 
 <!doctype html>
@@ -66,21 +67,41 @@ const ogUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
 
-    <!-- Font Awesome 6 Free (CDN) -->
+    <!-- Font Awesome 6 Free (CDN) - load non-blocking -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      onload="this.rel='stylesheet'"
     />
-    <!-- Google Fonts: Source Sans Pro -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      />
+    </noscript>
+
+    <!-- Google Fonts: Source Sans Pro - load non-blocking with display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
-      rel="stylesheet"
+      onload="this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- JSON-LD Structured Data -->
     <script
@@ -111,6 +132,30 @@ const ogUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site
           'https://www.linkedin.com/search/results/people/?keywords=ecoair%20plastics&origin=FACETED_SEARCH',
         ],
       })}
+    />
+    <!-- Preload LCP image when this layout is used as a landing page -->
+    {landing && <link rel="preload" as="image" href={ogUrl} />}
+
+    <!-- Inline translations as JSON so client-side code doesn't import server modules -->
+    <script id="__TRANSLATIONS__" type="application/json" set:html={JSON.stringify(translationsData)} />
+
+    <!-- Client-side module to apply translations (non-blocking, module scripts are deferred) -->
+    <script
+      type="module"
+      set:html={String.raw`
+      (function(){
+        try {
+          const translationsEl = document.getElementById('__TRANSLATIONS__');
+          const translations = translationsEl ? JSON.parse(translationsEl.textContent || '{}') : {};
+          function getLang(){ const params = new URLSearchParams(location.search); const lang = params.get('lang'); if(lang==='en'||lang==='ca') return lang; return 'es'; }
+          function applyTranslations(){ const lang = getLang(); const t = translations[lang] || {}; document.querySelectorAll('[data-i18n]').forEach(el=>{ const key = el.getAttribute('data-i18n'); if(key && t[key] !== undefined) el.innerHTML = t[key].replace(/\n/g,'<br>'); }); document.documentElement.lang = getLang(); }
+          applyTranslations();
+        } catch (err) {
+          // fail gracefully
+          console.warn('Translations apply failed', err);
+        }
+      })();
+    `}
     />
 
     <slot name="head" />

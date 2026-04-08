@@ -67,20 +67,20 @@ import NavLink from './NavLink.astro';
   </nav>
 </div>
 
-<script>
+<script type="module">
   const navButton = document.getElementById('navButton');
   const navPanel = document.getElementById('navPanel');
   const body = document.body;
-  const toggle = navButton?.querySelector<HTMLElement>('.toggle');
+  const toggle = navButton && navButton.querySelector('.toggle');
 
   function openPanel() {
     body.classList.add('navPanel-visible');
-    toggle?.setAttribute('aria-expanded', 'true');
+    toggle && toggle.setAttribute('aria-expanded', 'true');
   }
 
   function closePanel() {
     body.classList.remove('navPanel-visible');
-    toggle?.setAttribute('aria-expanded', 'false');
+    toggle && toggle.setAttribute('aria-expanded', 'false');
   }
 
   if (navButton && toggle) {
@@ -104,11 +104,11 @@ import NavLink from './NavLink.astro';
     });
   }
 
-  document.addEventListener('click', (e: MouseEvent) => {
+  document.addEventListener('click', (e) => {
     if (body.classList.contains('navPanel-visible')) {
-      const target = e.target as Node | null;
-      const panelNode = navPanel as Node | null;
-      const buttonNode = navButton as Node | null;
+      const target = e.target;
+      const panelNode = navPanel;
+      const buttonNode = navButton;
       if (panelNode && !panelNode.contains(target) && buttonNode && !buttonNode.contains(target)) {
         closePanel();
       }
