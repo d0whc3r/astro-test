@@ -1,25 +1,45 @@
 ---
+
 ---
-<div id="navButton">
-  <a href="#navPanel" class="toggle"></a>
+
+<div id="navButton" role="button" aria-label="Toggle navigation menu">
+  <a href="#navPanel" class="toggle" aria-expanded="false" aria-controls="navPanel"></a>
 </div>
 
-<div id="navPanel">
+<div id="navPanel" role="navigation" aria-label="Mobile navigation">
   <nav>
     <a class="link depth-0" href="?lang=es"><span class="indent-0"></span><span>es</span></a>
     <a class="link depth-0" href="?lang=en"><span class="indent-0"></span><span>en</span></a>
     <a class="link depth-0" href="?lang=ca"><span class="indent-0"></span><span>ca</span></a>
-    <a class="link depth-1" href="/index.html"><span class="indent-1"></span><span data-i18n="home">Home</span></a>
-    <a class="link depth-1" href="/products/fans.html"><span class="indent-1"></span><span data-i18n="products-fans-title">Ventilation</span></a>
-    <a class="link depth-2" href="/products/fans/duct.html"><span class="indent-2"></span><span data-i18n="products-fans-duct">Axial</span></a>
-    <a class="link depth-2" href="/products/fans/radial.html"><span class="indent-2"></span><span data-i18n="products-fans-radial">Centrifugal</span></a>
-    <a class="link depth-2" href="/products/fans/roof.html"><span class="indent-2"></span><span data-i18n="products-fans-roof">Roof</span></a>
-    <a class="link depth-1" href="/products/filters.html"><span class="indent-1"></span><span data-i18n="products-filters-title">Filtration</span></a>
-    <a class="link depth-2" href="/products/filters/dust.html"><span class="indent-2"></span><span data-i18n="products-filters-dust">Particles</span></a>
-    <a class="link depth-2" href="/products/filters/liquid.html"><span class="indent-2"></span><span data-i18n="products-filters-liquid">Liquids</span></a>
-    <a class="link depth-2" href="/products/filters/air.html"><span class="indent-2"></span><span data-i18n="products-filters-air">Gases</span></a>
-    <a class="link depth-1" href="/solutions360.html"><span class="indent-1"></span><span data-i18n="solutions360">Solutions 360º</span></a>
-    <a class="link depth-1" href="/team.html"><span class="indent-1"></span><span data-i18n="about">About Us</span></a>
+    <a class="link depth-1" href="/"><span class="indent-1"></span><span data-i18n="home">Home</span></a>
+    <a class="link depth-1" href="/products/fans"
+      ><span class="indent-1"></span><span data-i18n="products-fans-title">Ventilation</span></a
+    >
+    <a class="link depth-2" href="/products/fans/duct"
+      ><span class="indent-2"></span><span data-i18n="products-fans-duct">Axial</span></a
+    >
+    <a class="link depth-2" href="/products/fans/radial"
+      ><span class="indent-2"></span><span data-i18n="products-fans-radial">Centrifugal</span></a
+    >
+    <a class="link depth-2" href="/products/fans/roof"
+      ><span class="indent-2"></span><span data-i18n="products-fans-roof">Roof</span></a
+    >
+    <a class="link depth-1" href="/products/filters"
+      ><span class="indent-1"></span><span data-i18n="products-filters-title">Filtration</span></a
+    >
+    <a class="link depth-2" href="/products/filters/dust"
+      ><span class="indent-2"></span><span data-i18n="products-filters-dust">Particles</span></a
+    >
+    <a class="link depth-2" href="/products/filters/liquid"
+      ><span class="indent-2"></span><span data-i18n="products-filters-liquid">Liquids</span></a
+    >
+    <a class="link depth-2" href="/products/filters/air"
+      ><span class="indent-2"></span><span data-i18n="products-filters-air">Gases</span></a
+    >
+    <a class="link depth-1" href="/solutions360"
+      ><span class="indent-1"></span><span data-i18n="solutions360">Solutions 360º</span></a
+    >
+    <a class="link depth-1" href="/team"><span class="indent-1"></span><span data-i18n="about">About Us</span></a>
   </nav>
 </div>
 
@@ -27,16 +47,37 @@
   const navButton = document.getElementById('navButton');
   const navPanel = document.getElementById('navPanel');
   const body = document.body;
+  const toggle = navButton?.querySelector<HTMLElement>('.toggle');
 
-  if (navButton) {
-    const toggle = navButton.querySelector<HTMLElement>('.toggle');
-    if (toggle) {
-      toggle.addEventListener('click', (e) => {
+  function openPanel() {
+    body.classList.add('navPanel-visible');
+    toggle?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closePanel() {
+    body.classList.remove('navPanel-visible');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  if (navButton && toggle) {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (body.classList.contains('navPanel-visible')) {
+        closePanel();
+      } else {
+        openPanel();
+      }
+    });
+
+    // Keyboard support
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
         e.preventDefault();
-        e.stopPropagation();
-        body.classList.toggle('navPanel-visible');
-      });
-    }
+        closePanel();
+        toggle.focus();
+      }
+    });
   }
 
   document.addEventListener('click', (e: MouseEvent) => {
@@ -45,14 +86,15 @@
       const panelNode = navPanel as Node | null;
       const buttonNode = navButton as Node | null;
       if (panelNode && !panelNode.contains(target) && buttonNode && !buttonNode.contains(target)) {
-        body.classList.remove('navPanel-visible');
+        closePanel();
       }
     }
   });
 
+  // Close panel when a link is clicked
   if (navPanel) {
-    navPanel.addEventListener('click', (e) => {
-      e.stopPropagation();
+    navPanel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => closePanel());
     });
   }
 </script>

@@ -27,7 +27,7 @@ const { alt = true } = Astro.props;
         >
           &nbsp;Menu
         </a>
-        <ul class="dropotron" role="menu">
+        <ul class="dropotron level-0" role="menu">
           <li role="menuitem"><a href="/" data-i18n="home">Home</a></li>
           <li class="li-opener" role="menuitem">
             <a
@@ -39,7 +39,7 @@ const { alt = true } = Astro.props;
             >
               Ventilation
             </a>
-            <ul class="dropotron left-auto! right-full! top-0!" role="menu">
+            <ul class="dropotron level-1 left-auto! right-full! top-0!" role="menu">
               <li role="menuitem"><a href="/products/fans/duct" data-i18n="products-fans-duct">Axial</a></li>
               <li role="menuitem"><a href="/products/fans/radial" data-i18n="products-fans-radial">Centrifugal</a></li>
               <li role="menuitem"><a href="/products/fans/roof" data-i18n="products-fans-roof">Roof</a></li>
@@ -55,7 +55,7 @@ const { alt = true } = Astro.props;
             >
               Filtration
             </a>
-            <ul class="dropotron left-auto! right-full! top-0!" role="menu">
+            <ul class="dropotron level-1 left-auto! right-full! top-0!" role="menu">
               <li role="menuitem"><a href="/products/filters/dust" data-i18n="products-filters-dust">Particles</a></li>
               <li role="menuitem">
                 <a href="/products/filters/liquid" data-i18n="products-filters-liquid">Liquids</a>
@@ -100,37 +100,16 @@ const { alt = true } = Astro.props;
   }
 
   /* ── Desktop dropdown menu ───────────────────────── */
-  function closeAllDropdowns() {
-    document.querySelectorAll<HTMLElement>('.dropotron').forEach((d) => d.classList.remove('open'));
-    document.querySelectorAll<HTMLElement>('[aria-expanded="true"]').forEach((btn) => {
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  }
+  document.querySelectorAll<HTMLElement>('#nav .li-opener > a[href="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
 
   document.querySelectorAll<HTMLElement>('#nav .li-opener > a').forEach((opener) => {
-    opener.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const drop = opener.parentElement?.querySelector<HTMLElement>('.dropotron');
-      if (drop) {
-        const wasOpen = drop.classList.contains('open');
-        closeAllDropdowns();
-        if (!wasOpen) {
-          drop.classList.add('open');
-          opener.setAttribute('aria-expanded', 'true');
-        }
-      }
-    });
-
-    // Keyboard support: Escape closes dropdown
     opener.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         e.preventDefault();
-        closeAllDropdowns();
         opener.focus();
       }
     });
   });
-
-  document.addEventListener('click', closeAllDropdowns);
 </script>

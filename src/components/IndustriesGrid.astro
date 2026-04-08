@@ -80,17 +80,17 @@ const industries: Industry[] = [
 ];
 
 // Group industries into rows of 2
-const rows = Array.from({ length: Math.ceil(industries.length / 2) }, (_, i) =>
-  industries.slice(i * 2, i * 2 + 2),
-);
+const rows = Array.from({ length: Math.ceil(industries.length / 2) }, (_, i) => industries.slice(i * 2, i * 2 + 2));
 ---
-<section id="industries" class="box special features">
+
+<section id="industries" class="box special features" aria-labelledby="industries-heading">
+  <h2 id="industries-heading" class="sr-only">Industries We Serve</h2>
   {
     rows.map((row) => (
       <div class="features-row">
         {row.map((industry) => (
           <section>
-            <span class={`icon solid major fas ${industry.icon} ${industry.accent}`} />
+            <span class={`icon solid major fas ${industry.icon} ${industry.accent}`} aria-hidden="true" />
             <h3 data-i18n={industry.titleKey}>{industry.titleDefault}</h3>
             <p data-i18n={industry.descKey}>{industry.descDefault}</p>
           </section>

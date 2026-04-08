@@ -571,6 +571,47 @@ input[type="button"]:active,
   @apply bg-primary-dark;
 }
 
+/* ── Screen Reader Only ──────────────────────────────────── */
+
+.sr-only {
+  @apply sr-only;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* ── Skip Link ───────────────────────────────────────────── */
+
+.skip-link {
+  @apply sr-only;
+}
+
+.skip-link:focus {
+  @apply not-sr-only;
+  @apply fixed top-2 left-2 z-[99999] bg-white text-dark px-4 py-2 rounded shadow-lg outline-2 outline-primary;
+  clip: auto;
+  width: auto;
+  height: auto;
+}
+
+/* ── Focus Visible ───────────────────────────────────────── */
+
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary;
+}
+
 /* ── Page wrapper ────────────────────────────────────────── */
 
 #page-wrapper {
@@ -594,7 +635,8 @@ body.landing #page-wrapper {
 /* ── Header ──────────────────────────────────────────────── */
 
 #header {
-  @apply fixed top-0 left-0 z-[10000] h-[3.25em] w-full cursor-default bg-dark leading-[3.25em] text-faded;
+  @apply fixed top-0 left-0 z-[10000] h-[3.25em] w-full cursor-default bg-nav leading-[3.25em] text-faded;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 #header h1 {
@@ -662,7 +704,7 @@ body.landing #page-wrapper {
 
 #header.alt {
   animation: none;
-  background: none;
+  background-color: transparent;
   @apply absolute text-white/75;
 }
 
@@ -716,7 +758,17 @@ body.landing #page-wrapper {
   right: 0;
 }
 
-.dropotron.open {
+.dropotron.level-0 {
+  font-size: 0.9em;
+  margin: 0.5em 0 0 0;
+}
+
+.dropotron.level-1 {
+  width: 12.5em;
+}
+
+.dropotron.open,
+.li-opener:hover > .dropotron {
   @apply block;
 }
 

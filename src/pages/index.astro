@@ -12,17 +12,16 @@ import MobileNav from '../components/MobileNav.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 ---
 
-<Layout>
-  <div id="page-wrapper">
+<Layout title="EcoAir Plastics | Environmental Solutions for Air Quality" canonicalUrl="/">
+  <SiteHeader />
 
-    <SiteHeader />
+  <HeroBanner
+    imageSrc="/images/main-2.jpeg"
+    title="EcoAir Plastics"
+    subtitle="Environmental Solutions for Air Quality."
+  />
 
-    <HeroBanner
-      imageSrc="/images/main-2.jpeg"
-      title="EcoAir Plastics"
-      subtitle="Environmental Solutions for Air Quality."
-    />
-
+  <main id="main-content">
     <section id="main" class="container">
       <HeroBox />
       <TurnkeySystems />
@@ -34,7 +33,7 @@ import CookieBanner from '../components/CookieBanner.astro';
             alt="Industrial Fans"
             title="Ventilation"
             description="We have our own range of industrial fans manufactured with technical plastics, suitable for working with highly corrosive gases under continuous service conditions."
-            href="/products/fans.html"
+            href="/products/fans"
             linkText="More information"
             titleKey="fans-title"
             descriptionKey="fans-description"
@@ -47,7 +46,7 @@ import CookieBanner from '../components/CookieBanner.astro';
             alt="Industrial Filters"
             title="Filtration"
             description="Discover our filtration solutions for the industrial sector. We offer dust, liquid and gas filters adapted to the needs of each process and designed to meet the most stringent requirements."
-            href="/products/filters.html"
+            href="/products/filters"
             linkText="More information"
             titleKey="filters-title"
             descriptionKey="filters-description"
@@ -59,10 +58,9 @@ import CookieBanner from '../components/CookieBanner.astro';
       <IndustriesGrid />
       <TeamSection />
     </section>
+  </main>
 
-    <SiteFooter />
-    <MobileNav />
-    <CookieBanner />
-
-  </div>
+  <SiteFooter />
+  <MobileNav />
+  <CookieBanner />
 </Layout>

@@ -13,11 +13,12 @@ interface Props {
 
 const { image, alt, title, description, href, linkText, titleKey, descriptionKey, linkTextKey } = Astro.props;
 ---
-<section class="box special alt">
+
+<section class="box special alt" aria-labelledby={`product-${titleKey || title}`}>
   <span class="image featured">
-    <img src={image} alt={alt} />
+    <img src={image} alt={alt} loading="lazy" width="600" height="340" />
   </span>
-  <h3 data-i18n={titleKey}>{title}</h3>
+  <h3 id={`product-${titleKey || title}`} data-i18n={titleKey}>{title}</h3>
   <p data-i18n={descriptionKey}>{description}</p>
   <ul class="actions special">
     <li><a href={href} class="button alt" data-i18n={linkTextKey}>{linkText}</a></li>
