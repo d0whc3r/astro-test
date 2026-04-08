@@ -1,75 +1,62 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BaseImage from '../components/BaseImage.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import MobileNav from '../components/MobileNav.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+
+const title = 'About Us';
+const description = 'EcoAir Plastics is a team of engineers specialized in filtration systems.';
 ---
 
-<Layout
-  title="About Us | EcoAir Plastics"
-  description="Meet the team of engineers behind EcoAir Plastics — specialists in filtration and ventilation systems with over 10 years of combined experience."
-  landing={false}
->
+<Layout title={title} description={description} canonicalUrl="/team" landing={false}>
   <div id="page-wrapper">
     <SiteHeader alt={false} />
 
-    <section id="main" class="container">
-      <header>
-        <h2>About us</h2>
-        <p>Meet the people behind Ecoairplastics</p>
-      </header>
+    <main id="main-content">
+      <section id="main" class="container">
+        <header class="major">
+          <h2 data-i18n="about">About Us</h2>
+        </header>
 
-      <!-- Our team -->
-      <div class="row">
-        <div class="col-6 col-12-narrower">
-          <article class="box">
-            <h3>Our team</h3>
-            <p>
-              We are a team of engineers specialised in filtration systems with over 10 years of combined experience.
-            </p>
-            <p>
-              Our team is made up of engineers and technicians specialised in the design and manufacture of industrial
-              filtration and ventilation systems. We stand out for providing a service fully adapted to our customers'
-              needs.
-            </p>
-          </article>
-        </div>
-        <div class="col-6 col-12-narrower">
-          <div class="image featured">
-            <img src="/images/team.jpg" alt="EcoAir Plastics team" />
+        <div class="row">
+          <div class="col-12">
+            <section class="box special">
+              <span class="image featured">
+                <BaseImage
+                  src="/images/team.jpg"
+                  alt="EcoAir Plastics engineering team working on filtration systems"
+                  loading="lazy"
+                  width={1200}
+                  height={340}
+                />
+              </span>
+              <h3 data-i18n="team-title">Our team</h3>
+              <p data-i18n="team-description">
+                We are a team of engineers specialised in filtration systems with over 10 years of combined experience.
+              </p>
+            </section>
           </div>
         </div>
-      </div>
 
-      <!-- The company -->
-      <div class="row">
-        <div class="col-6 col-12-narrower">
-          <div class="image featured">
-            <img src="/images/factory.jpg" alt="EcoAir Plastics factory" />
+        <div class="row">
+          <div class="col-12">
+            <section class="box special">
+              <span class="image featured">
+                <BaseImage
+                  src="/images/factory.jpg"
+                  alt="EcoAir Plastics manufacturing facility"
+                  loading="lazy"
+                  width={1200}
+                  height={340}
+                />
+              </span>
+            </section>
           </div>
         </div>
-        <div class="col-6 col-12-narrower">
-          <article class="box">
-            <h3>The company</h3>
-            <p>
-              Ecoair Plastics is a company with extensive experience in implementing environmental solutions, a key
-              factor that has enabled us to market our products and provide our wide range of services not only
-              nationally, but also internationally.
-            </p>
-            <h4>Our services</h4>
-            <p>
-              We are specialists in air treatment. Our technical team takes care of the capture study, the design of
-              suction ducts and the selection of the most suitable treatment system for each situation.
-            </p>
-            <p>We offer a complete turnkey service from the project, construction and assembly to commissioning.</p>
-            <ul class="actions">
-              <li><a href="/solutions360.html" class="button alt">Solutions 360º</a></li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <SiteFooter />
     <MobileNav />

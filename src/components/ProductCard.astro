@@ -1,4 +1,6 @@
 ---
+import BaseImage from './BaseImage.astro';
+
 interface Props {
   image: string;
   alt: string;
@@ -16,7 +18,7 @@ const { image, alt, title, description, href, linkText, titleKey, descriptionKey
 
 <section class="box special alt" aria-labelledby={`product-${titleKey || title}`}>
   <span class="image featured">
-    <img src={image} alt={alt} loading="lazy" width="600" height="340" />
+    <BaseImage src={image} alt={alt} loading="lazy" width={600} height={340} />
   </span>
   <h3 id={`product-${titleKey || title}`} data-i18n={titleKey}>{title}</h3>
   <p data-i18n={descriptionKey}>{description}</p>

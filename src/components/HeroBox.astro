@@ -1,5 +1,5 @@
 ---
-
+import BaseImage from './BaseImage.astro';
 ---
 
 <section class="box special" aria-labelledby="hero-heading">
@@ -11,13 +11,13 @@
     </p>
   </header>
   <span class="image featured">
-    <img
+    <BaseImage
       src="/images/factory.jpg"
       alt="EcoAir Plastics manufacturing facility with technical plastic components"
       loading="eager"
       fetchpriority="high"
-      width="1200"
-      height="340"
+      width={1200}
+      height={340}
     />
   </span>
 </section>

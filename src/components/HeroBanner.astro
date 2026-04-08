@@ -5,7 +5,8 @@ interface Props {
   subtitle: string;
 }
 
-const { imageSrc, title, subtitle } = Astro.props;
+const { imageSrc: imageSrcProp, title, subtitle } = Astro.props;
+const imageSrc = import.meta.env.BASE_URL + imageSrcProp;
 ---
 
 <section id="banner" class="banner" style={`background-image: url('${imageSrc}');`} role="img" aria-label={title}>

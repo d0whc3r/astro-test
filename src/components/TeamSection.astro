@@ -1,17 +1,17 @@
 ---
-
+import BaseImage from './BaseImage.astro';
 ---
 
 <div class="row">
   <div class="col-12">
     <section class="box special" aria-labelledby="team-heading">
       <span class="image featured">
-        <img
+        <BaseImage
           src="/images/team.jpg"
           alt="EcoAir Plastics engineering team working on filtration systems"
           loading="lazy"
-          width="1200"
-          height="340"
+          width={1200}
+          height={340}
         />
       </span>
       <h3 id="team-heading" data-i18n="team-title">Our team</h3>

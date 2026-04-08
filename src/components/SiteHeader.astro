@@ -1,4 +1,6 @@
 ---
+import BaseImage from './BaseImage.astro';
+
 interface Props {
   alt?: boolean;
 }
@@ -8,7 +10,7 @@ const { alt = true } = Astro.props;
 <header id="header" class={alt ? 'alt' : ''} role="banner">
   <h1>
     <a href="/" aria-label="EcoAir Plastics - Home">
-      <img id="header-logo" src="/images/header-logo.png" alt="EcoAir Plastics logo" width="180" height="45" />
+      <BaseImage id="header-logo" src="/images/header-logo.png" alt="EcoAir Plastics logo" width={180} height={45} />
     </a>
   </h1>
   <nav id="nav" aria-label="Main navigation">

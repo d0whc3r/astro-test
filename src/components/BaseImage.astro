@@ -1,0 +1,16 @@
+---
+/**
+ * Responsive image component that automatically prepends BASE_URL
+ * to absolute paths for correct resolution when deployed to subpaths.
+ */
+
+interface Props extends astroHTML.JSX.ImgHTMLAttributes {
+  src: string;
+  alt: string;
+}
+
+const { src: srcProp, alt, ...rest } = Astro.props;
+const src = srcProp.startsWith('/') ? import.meta.env.BASE_URL + srcProp : srcProp;
+---
+
+<img src={src} alt={alt} {...rest} />
