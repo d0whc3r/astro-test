@@ -6,7 +6,8 @@ import autoprefixer from "autoprefixer";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ecoairplastics.com",
+  site: "https://d0whc3r.github.io",
+  base: "/astro-test",
   integrations: [sitemap()],
   build: {
     format: "file",
