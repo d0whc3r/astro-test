@@ -9,11 +9,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "oxlint",
+    "format": "oxfmt --write",
+    "format:check": "oxfmt --check"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "oxfmt": "0.44.0",
+    "oxlint": "1.59.0",
+    "oxlint-tsgolint": "0.20.0"
   }
 }
