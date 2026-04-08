@@ -13,3 +13,79 @@ const imageSrc = import.meta.env.BASE_URL + imageSrcProp;
   <h1 data-i18n="banner-title">{title}</h1>
   <p data-i18n="banner-description">{subtitle}</p>
 </section>
+
+<style>
+  @reference "../styles/global.css";
+  /* ── Banner ──────────────────────────────────────────────── */
+
+  #banner {
+    background-attachment: scroll;
+    @apply bg-mid bg-cover bg-center bg-no-repeat px-0 pt-[12em] pb-[20em] text-center font-semibold text-white;
+    text-shadow: 4px 4px 5px black;
+  }
+
+  #banner :last-child {
+    @apply mb-0;
+  }
+
+  #banner h2,
+  #banner h3,
+  #banner h4,
+  #banner h5,
+  #banner h6,
+  #banner h1 {
+    @apply text-white;
+  }
+
+  #banner h1,
+  #banner h2 {
+    @apply m-0 mb-[0.5em] p-0 text-[3.5em] leading-none;
+  }
+
+  #banner p {
+    @apply mb-[1.75em] text-[1.5em];
+  }
+
+  /* ── Responsive: Wide (≤ 1680px) ────────────────────────── */
+
+  @media screen and (max-width: 1680px) {
+    #banner {
+      @apply px-0 pt-[10em] pb-[18em];
+    }
+  }
+
+  /* ── Responsive: Normal (≤ 1280px) ──────────────────────── */
+
+  @media screen and (max-width: 1280px) {
+    #banner {
+      background-attachment: scroll;
+    }
+    #banner h1,
+    #banner h2 {
+      @apply text-[3.5em];
+    }
+  }
+
+  /* ── Responsive: Mobile (≤ 736px) ───────────────────────── */
+
+  @media screen and (max-width: 736px) {
+    #banner {
+      @apply px-0 py-[4em];
+    }
+    #banner h1,
+    #banner h2 {
+      @apply text-[2.25em];
+    }
+    #banner p {
+      @apply text-[1.25em];
+    }
+  }
+
+  /* ── Responsive: Tiny (≤ 480px) ─────────────────────────── */
+
+  @media screen and (max-width: 480px) {
+    #banner {
+      @apply p-[5em_3em_4em];
+    }
+  }
+</style>

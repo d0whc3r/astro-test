@@ -56,7 +56,7 @@ import NavLink from './NavLink.astro';
   </ul>
 
   <ul class="copyright">
-    <li><NavLink href="/legal" data-i18n="legal">Legal notice (Spanish)</NavLink></li>
+    <li><NavLink href="/legal/" data-i18n="legal">Legal notice (Spanish)</NavLink></li>
     <li>&copy; 2026 <span data-i18n="copyright">All rights reserved</span></li>
     <li>
       <span data-i18n="developed_by">Developed by</span>
@@ -68,3 +68,105 @@ import NavLink from './NavLink.astro';
     </li>
   </ul>
 </footer>
+
+<style>
+  @reference "../styles/global.css";
+  /* ── Footer ──────────────────────────────────────────────── */
+
+  #footer {
+    @apply bg-footer px-0 py-[4em] pb-[6em] text-center;
+  }
+
+  #footer .icons a {
+    @apply opacity-35 transition-opacity duration-200 ease-in-out;
+  }
+
+  #footer .icons a:hover {
+    @apply opacity-75;
+  }
+
+  #footer .copyright {
+    @apply mt-[2em] p-0 text-center text-[0.9em] leading-none text-muted;
+  }
+
+  #footer .copyright a {
+    @apply text-inherit;
+  }
+
+  #footer .copyright li {
+    @apply ml-[1em] inline-block list-none border-l border-solid border-[#ddd] pl-[1em];
+  }
+
+  #footer .copyright li:first-child {
+    @apply ml-0 border-l-0 pl-0;
+  }
+
+  /* ── Contact block ───────────────────────────────────────── */
+
+  .contact-block ul {
+    @apply ml-[43%] list-none text-left;
+  }
+
+  .contact-block ul li {
+    @apply my-[15px] text-[1.2rem];
+    text-indent: -25px;
+  }
+
+  .contact-block ul li i {
+    @apply mr-[15px] no-underline;
+  }
+
+  /* Social icons list */
+  ul.icons {
+    @apply my-[1em] cursor-default list-none pl-0;
+  }
+  ul.icons li {
+    @apply inline-block pr-[1.25em];
+  }
+  ul.icons li:last-child {
+    @apply pr-0;
+  }
+  ul.icons li .icon {
+    @apply text-inherit;
+  }
+  ul.icons li .icon:before {
+    @apply text-[1.75em];
+  }
+
+  /* ── Responsive: Narrower (≤ 840px) ─────────────────────── */
+
+  @media screen and (max-width: 840px) {
+    .contact-block h3 {
+      @apply text-[1.5em];
+    }
+    .contact-block ul {
+      @apply ml-[38%];
+    }
+    .contact-block ul li {
+      @apply text-[1.1em];
+    }
+  }
+
+  /* ── Responsive: Mobile (≤ 736px) ───────────────────────── */
+
+  @media screen and (max-width: 736px) {
+    #footer {
+      @apply px-0 py-[4em];
+    }
+    #footer .copyright li {
+      @apply ml-0 block border-l-0 pl-0 leading-[2em];
+    }
+
+    .contact-block {
+      @apply mx-[2em] px-[10px] py-[20px];
+      width: calc(100% - 4em);
+    }
+    .contact-block ul {
+      @apply mr-[5%] ml-[27%] w-[65%];
+    }
+    .contact-block ul li {
+      @apply my-[10px] text-[1.1em];
+      text-indent: -45px;
+    }
+  }
+</style>

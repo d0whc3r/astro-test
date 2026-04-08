@@ -28,18 +28,18 @@ import NavLink from '../components/NavLink.astro';
   </div>
 </div>
 
-<script type="module">
-  function getCookie(name) {
+<script>
+  function getCookie(name: string): string | null {
     const value = '; ' + document.cookie;
     const parts = value.split('; ' + name + '=');
     if (parts.length === 2) {
       const last = parts.pop();
-      return last ? last.split(';').shift() || null : null;
+      return last ? (last.split(';').shift() ?? null) : null;
     }
     return null;
   }
 
-  function setCookie(name, val, days) {
+  function setCookie(name: string, val: string, days: number): void {
     const maxAge = days * 24 * 60 * 60;
     document.cookie = name + '=' + val + '; max-age=' + maxAge + '; path=/; SameSite=Lax';
   }
@@ -53,17 +53,15 @@ import NavLink from '../components/NavLink.astro';
       banner.style.display = 'block';
     }
 
-    acceptBtn &&
-      acceptBtn.addEventListener('click', () => {
-        banner.style.display = 'none';
-        setCookie('cookie-consent', 'accepted', 365);
-      });
+    acceptBtn?.addEventListener('click', () => {
+      banner.style.display = 'none';
+      setCookie('cookie-consent', 'accepted', 365);
+    });
 
-    rejectBtn &&
-      rejectBtn.addEventListener('click', () => {
-        banner.style.display = 'none';
-        setCookie('cookie-consent', 'rejected', 365);
-      });
+    rejectBtn?.addEventListener('click', () => {
+      banner.style.display = 'none';
+      setCookie('cookie-consent', 'rejected', 365);
+    });
 
     // Keyboard support: Escape dismisses banner when focused
     banner.addEventListener('keydown', (e) => {
@@ -76,3 +74,42 @@ import NavLink from '../components/NavLink.astro';
     });
   }
 </script>
+
+<style>
+  @reference "../styles/global.css";
+  /* ── Cookie banner ───────────────────────────────────────── */
+
+  #cookie-banner {
+    @apply fixed right-0 bottom-0 left-0 z-[9999] hidden bg-cookie p-[15px] text-[14px] text-white;
+  }
+
+  #cookie-banner .cookie-inner {
+    @apply mx-auto flex max-w-[960px] flex-wrap items-center justify-between gap-[10px];
+  }
+
+  #cookie-banner .cookie-text {
+    flex: 1 1 250px;
+  }
+
+  #cookie-banner .cookie-text a {
+    @apply text-primary;
+    border-bottom: dotted 1px;
+  }
+
+  #cookie-banner .cookie-actions {
+    @apply flex flex-wrap gap-[10px];
+  }
+
+  #cookie-accept,
+  #cookie-reject {
+    @apply cursor-pointer rounded-[4px] border-none px-[16px] py-[6px] text-[13px] font-normal;
+    font-family: inherit;
+  }
+
+  #cookie-accept {
+    @apply bg-primary text-white;
+  }
+  #cookie-reject {
+    @apply bg-[#555] text-white;
+  }
+</style>

@@ -133,3 +133,186 @@ const { alt = true } = Astro.props;
     });
   });
 </script>
+
+<style>
+  @reference "../styles/global.css";
+  /* ── Header animations ───────────────────────────────────── */
+
+  @keyframes reveal-header {
+    0% {
+      top: -5em;
+    }
+    100% {
+      top: 0;
+    }
+  }
+
+  /* ── Header ──────────────────────────────────────────────── */
+
+  #header {
+    @apply fixed top-0 left-0 z-[10000] h-[3.25em] w-full cursor-default bg-nav leading-[3.25em] text-faded;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+  }
+
+  #header p.site-logo {
+    @apply absolute top-0 left-[1.25em] m-0 h-[inherit] p-0 leading-[inherit] text-inherit;
+  }
+
+  #header p.site-logo a {
+    @apply border-0 font-normal text-white;
+  }
+
+  #header nav {
+    @apply absolute top-0 right-[0.75em] h-[inherit] align-middle leading-[inherit];
+  }
+
+  #header nav > ul {
+    @apply m-0 list-none pl-0;
+  }
+  #header nav > ul > li {
+    @apply inline-block pl-0;
+  }
+  #header nav > ul > li > ul {
+    @apply hidden;
+  }
+
+  #header nav > ul > li a {
+    @apply inline-block h-[2em] rounded-[6px] px-[1em] leading-[1.95em];
+  }
+
+  #header nav > ul > li a:not(.button) {
+    @apply inline-block border-0 text-white no-underline;
+  }
+
+  #header nav > ul > li a:not(.button).icon:before {
+    @apply mr-[0.5em] text-muted;
+  }
+
+  #header nav > ul > li.active a:not(.button) {
+    @apply bg-white/25;
+  }
+
+  #header input[type='submit'],
+  #header input[type='reset'],
+  #header input[type='button'],
+  #header .button {
+    @apply bg-transparent text-white shadow-[inset_0_0_0_2px_#999];
+  }
+
+  #header input[type='submit']:hover,
+  #header input[type='reset']:hover,
+  #header input[type='button']:hover,
+  #header .button:hover {
+    @apply bg-white/25;
+  }
+
+  #header input[type='submit']:active,
+  #header input[type='reset']:active,
+  #header input[type='button']:active,
+  #header .button:active {
+    @apply bg-white/50;
+  }
+
+  #header.reveal {
+    animation: reveal-header 0.5s;
+  }
+
+  #header.alt {
+    animation: none;
+    background-color: transparent;
+    @apply absolute text-white/75;
+  }
+
+  #header.alt nav > ul > li a:not(.button).icon:before {
+    @apply text-white/75;
+  }
+
+  #header.alt nav > ul > li.active a:not(.button) {
+    @apply bg-white/20;
+  }
+
+  #header.alt input[type='submit'],
+  #header.alt input[type='reset'],
+  #header.alt input[type='button'],
+  #header.alt .button {
+    @apply shadow-[inset_0_0_0_2px_rgba(255,255,255,0.5)];
+  }
+
+  #header.alt input[type='submit']:hover,
+  #header.alt input[type='reset']:hover,
+  #header.alt input[type='button']:hover,
+  #header.alt .button:hover {
+    @apply bg-white/10;
+  }
+
+  #header.alt input[type='submit']:active,
+  #header.alt input[type='reset']:active,
+  #header.alt input[type='button']:active,
+  #header.alt .button:active {
+    @apply bg-white/20;
+  }
+
+  /* header logo */
+  #header-logo {
+    @apply block h-[45px] w-auto;
+  }
+
+  /* ── Dropdown ────────────────────────────────────────────── */
+
+  .li-opener {
+    @apply relative;
+  }
+
+  .dropotron {
+    @apply absolute z-[10001] hidden w-[11em] list-none rounded-[6px] bg-card px-0 py-[0.5em];
+    box-shadow:
+      0 2px 0 0 rgba(0, 0, 0, 0.065),
+      inset 0 -1px 0 0 #fff,
+      inset 0 0 0 1px rgba(229, 229, 229, 0.5);
+    top: calc(100% + 0.5em);
+    right: 0;
+  }
+
+  .dropotron.level-0 {
+    font-size: 0.9em;
+    margin: 0.5em 0 0 0;
+  }
+
+  .dropotron.level-1 {
+    width: 12.5em;
+  }
+
+  .dropotron.open,
+  .li-opener:hover > .dropotron {
+    @apply block;
+  }
+
+  .dropotron li {
+    @apply p-0;
+  }
+
+  .dropotron li a,
+  .dropotron li span {
+    @apply block border-0 border-t border-solid border-[#f2f2f2] px-[1em] py-[0.4em] text-mid no-underline transition-none;
+  }
+
+  .dropotron li:first-child > a,
+  .dropotron li:first-child > span {
+    @apply border-t-0;
+  }
+
+  .dropotron li:hover > a,
+  .dropotron li:hover > span {
+    @apply bg-primary text-white;
+  }
+
+  .dropotron:before {
+    @apply absolute right-[1.25em] block h-[0.75em] w-[0.75em] rotate-45 bg-card content-[''];
+    border: solid 1px rgba(229, 229, 229, 0.5);
+    border-bottom: 0;
+    border-right: 0;
+    top: -0.375em;
+  }
+</style>
