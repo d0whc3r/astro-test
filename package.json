@@ -1,19 +1,16 @@
 {
   "name": "astro-test",
-  "type": "module",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
     "astro": "astro",
+    "build": "astro build",
+    "dev": "astro dev",
+    "format": "oxfmt --no-error-on-unmatched-pattern --write",
+    "format:check": "oxfmt --no-error-on-unmatched-pattern --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix --fix-suggestions --fix-dangerously",
-    "format": "oxfmt --write",
-    "format:check": "oxfmt --check"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
@@ -24,5 +21,8 @@
     "oxfmt": "0.44.0",
     "oxlint": "1.59.0",
     "oxlint-tsgolint": "0.20.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

@@ -1,36 +1,25 @@
 export default {
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "astro",
-    "typescript",
-    "unicorn",
-    "oxc"
-  ],
-  "categories": {
-    "correctness": "error"
+  $schema: "./node_modules/oxlint/configuration_schema.json",
+  plugins: ["typescript", "unicorn", "oxc", "import", "jsx-a11y"],
+  categories: {
+    correctness: "error",
   },
-  "rules": {
-    "astro/no-confusing-languages": "error",
+  rules: {
     "typescript/no-explicit-any": "off",
-    "import/no-unresolved": "off"
   },
-  "env": {
-    "builtin": true
+  env: {
+    builtin: true,
   },
-  "settings": {
-    "import/resolver": {
-      "typescript": true,
-      "astro": true
-    }
-  },
-  "overrides": [
+  overrides: [
     {
-      "files": ["*.astro"],
-      "parser": "astro"
+      files: ["*.astro"],
+      rules: {
+        "unicorn/prefer-node-protocol": "off",
+      },
     },
     {
-      "files": ["*.ts", "*.tsx", "*.mts", "*.cts"],
-      "parser": "typescript"
-    }
-  ]
-}
+      files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+      rules: {},
+    },
+  ],
+};
