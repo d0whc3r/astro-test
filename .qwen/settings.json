@@ -1,9 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(npx *)",
-      "Bash(curl *)"
-    ]
+    "allow": ["Bash(npx *)", "Bash(curl *)"]
   },
   "$version": 3
 }

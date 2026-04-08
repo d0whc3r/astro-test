@@ -592,7 +592,7 @@ input[type="button"]:active,
 
 .skip-link:focus {
   @apply not-sr-only;
-  @apply fixed top-2 left-2 z-[99999] bg-white text-dark px-4 py-2 rounded shadow-lg outline-2 outline-primary;
+  @apply fixed top-2 left-2 z-[99999] rounded bg-white px-4 py-2 text-dark shadow-lg outline-2 outline-primary;
   clip: auto;
   width: auto;
   height: auto;
@@ -636,7 +636,9 @@ body.landing #page-wrapper {
 
 #header {
   @apply fixed top-0 left-0 z-[10000] h-[3.25em] w-full cursor-default bg-nav leading-[3.25em] text-faded;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 
 #header h1 {

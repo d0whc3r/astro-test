@@ -1,7 +1,12 @@
 {
-  "name": "astro-test",
+  "name": "ecoair-plastics",
+  "description": "Clone of ecoairplastics.com built with Astro, Tailwind CSS, and AI-assisted development",
   "version": "0.0.1",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:d0whc3r/astro-test.git"
+  },
   "scripts": {
     "astro": "astro",
     "build": "astro build",
@@ -13,12 +18,13 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.5",
-    "tailwindcss": "^4.2.2"
+    "astro": "6.1.5",
+    "tailwindcss": "4.2.2"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.27",
+    "@astrojs/sitemap": "3.7.2",
+    "@tailwindcss/vite": "4.2.2",
+    "autoprefixer": "10.4.27",
     "oxfmt": "0.44.0",
     "oxlint": "1.59.0",
     "oxlint-tsgolint": "0.20.0"

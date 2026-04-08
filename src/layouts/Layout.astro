@@ -13,12 +13,12 @@ const {
   title = 'EcoAir Plastics | Environmental Solutions for Air Quality',
   description = 'EcoAir Plastics is a leading company in the production of plastic products for air filtration and purification in industry.',
   landing = true,
-  ogImage = '/images/og-default.jpg',
-  canonicalUrl = 'https://ecoairplastics.com/',
+  ogImage = '/images/main-2.jpeg',
+  canonicalUrl = '/',
 } = Astro.props;
 
-const siteUrl = canonicalUrl.startsWith('http') ? canonicalUrl : `https://ecoairplastics.com${canonicalUrl}`;
-const ogUrl = ogImage.startsWith('http') ? ogImage : `https://ecoairplastics.com${ogImage}`;
+const siteUrl = canonicalUrl === '/' ? Astro.site!.href : new URL(canonicalUrl, Astro.site!).href;
+const ogUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site!).href;
 ---
 
 <!doctype html>
@@ -38,10 +38,10 @@ const ogUrl = ogImage.startsWith('http') ? ogImage : `https://ecoairplastics.com
     <link rel="canonical" href={siteUrl} />
 
     <!-- hreflang alternate links -->
-    <link rel="alternate" hreflang="es" href={`https://ecoairplastics.com${Astro.url.pathname}`} />
-    <link rel="alternate" hreflang="en" href={`https://ecoairplastics.com/en${Astro.url.pathname}`} />
-    <link rel="alternate" hreflang="ca" href={`https://ecoairplastics.com/ca${Astro.url.pathname}`} />
-    <link rel="alternate" hreflang="x-default" href={`https://ecoairplastics.com${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="es" href={`${siteUrl}?lang=es`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}?lang=en`} />
+    <link rel="alternate" hreflang="ca" href={`${siteUrl}?lang=ca`} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -89,8 +89,8 @@ const ogUrl = ogImage.startsWith('http') ? ogImage : `https://ecoairplastics.com
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'EcoAir Plastics S.L.',
-        url: 'https://ecoairplastics.com',
-        logo: '/images/header-logo.png',
+        url: Astro.site!.origin,
+        logo: `${Astro.site!.origin}/images/header-logo.png`,
         description: description,
         address: {
           '@type': 'PostalAddress',
