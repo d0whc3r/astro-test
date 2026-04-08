@@ -1,0 +1,72 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "sortImports": {
+    "newlinesBetween": true,
+    "ignoreCase": true,
+    "order": "asc",
+    "sortSideEffects": false,
+    "internalPattern": ["~/", "@/"],
+    "groups": [
+      "type",
+      "side_effect_style",
+      "side_effect",
+      "style",
+      "builtin",
+      "external",
+      { "newlinesBetween": true },
+      ["internal", "subpath"],
+      ["parent", "sibling", "index"],
+      "unknown"
+    ],
+    "customGroups": [
+      {
+        "groupName": "astro",
+        "selector": "external",
+        "elementNamePattern": ["astro*"]
+      },
+      {
+        "groupName": "react",
+        "selector": "external",
+        "elementNamePattern": ["react*", "@react*"]
+      }
+    ]
+  },
+  "sortTailwindcss": {
+    "attributes": ["class:list", "class:toggle", "class:style"],
+    "functions": ["clsx", "cn", "cva", "tw"],
+    "preserveDuplicates": false,
+    "preserveWhitespace": false,
+    "stylesheet": "src/styles/global.css"
+  },
+  "sortPackageJson": {
+    "sortScripts": true
+  },
+  "ignorePatterns": ["dist/**", "node_modules/**", ".astro/**"],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "options": {
+        "bracketSameLine": false,
+        "singleAttributePerLine": false
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.mts", "*.cts"],
+      "options": {
+        "sortImports": {
+          "newlinesBetween": true,
+          "ignoreCase": true,
+          "order": "asc",
+          "groups": [
+            "type",
+            "builtin",
+            "external",
+            { "newlinesBetween": true },
+            ["internal", "subpath"],
+            ["parent", "sibling", "index"]
+          ]
+        }
+      }
+    }
+  ]
+}

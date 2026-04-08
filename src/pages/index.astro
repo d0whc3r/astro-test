@@ -1,16 +1,425 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
-	<script>
-		console.log(
-			'Welcome to Astro! Check out the documentation at https://docs.astro.build',
-		);
-	</script>
+  <div id="page-wrapper">
+
+    <!-- ══ Header ══════════════════════════════════════════ -->
+    <header id="header" class="alt">
+      <h1>
+        <a href="/index.html">
+          <img id="header-logo" src="/images/header-logo.png" alt="EcoAir Plastics" />
+        </a>
+      </h1>
+      <nav id="nav">
+        <ul>
+          <li style="white-space:nowrap"><a href="?lang=es" class="button">es</a></li>
+          <li style="white-space:nowrap"><a href="?lang=en" class="button">en</a></li>
+          <li style="white-space:nowrap"><a href="?lang=ca" class="button">ca</a></li>
+          <li class="li-opener" style="white-space:nowrap; user-select:none; cursor:pointer;">
+            <a href="#" class="icon solid fa-angle-down" style="color:#fff; border:0;">
+              &nbsp;Menu
+            </a>
+            <ul class="dropotron">
+              <li><a href="/index.html">Home</a></li>
+              <li class="li-opener">
+                <a href="/products/fans.html">Ventilation</a>
+                <ul class="dropotron" style="left:auto; right:100%; top:0;">
+                  <li><a href="/products/fans/duct.html">Axial</a></li>
+                  <li><a href="/products/fans/radial.html">Centrifugal</a></li>
+                  <li><a href="/products/fans/roof.html">Roof</a></li>
+                </ul>
+              </li>
+              <li class="li-opener">
+                <a href="/products/filters.html">Filtration</a>
+                <ul class="dropotron" style="left:auto; right:100%; top:0;">
+                  <li><a href="/products/filters/dust.html">Particles</a></li>
+                  <li><a href="/products/filters/liquid.html">Liquids</a></li>
+                  <li><a href="/products/filters/air.html">Gases</a></li>
+                </ul>
+              </li>
+              <li><a href="/solutions360.html">Solutions 360º</a></li>
+              <li><a href="/team.html">About Us</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ══ Banner ═══════════════════════════════════════════ -->
+    <section id="banner" style="background-image: url('/images/main-2.jpeg');">
+      <h2>EcoAir Plastics</h2>
+      <p>Environmental Solutions for Air Quality.</p>
+    </section>
+
+    <!-- ══ Main content ═════════════════════════════════════ -->
+    <section id="main" class="container">
+
+      <!-- Hero box -->
+      <section class="box special">
+        <header class="major">
+          <h2>Industrial solutions for corrosive environments</h2>
+          <p>We design and market systems for gas ventilation and filtration, as well as other equipment related to fluid handling and storage.</p>
+        </header>
+        <span class="image featured">
+          <img src="/images/factory.jpg" alt="Factory" />
+        </span>
+      </section>
+
+      <!-- Turnkey systems -->
+      <section class="box special features">
+        <div class="features-row" style="padding:25px 0;">
+          <section>
+            <span class="icon solid major fas fa-file-circle-check accent3"></span>
+            <h3 style="margin-top:15px;">Turnkey systems</h3>
+          </section>
+          <section>
+            <p>
+              We are an engineering company providing environmental solutions for the industrial sector.<br />
+              We have our own workshop where we manufacture and test all our equipment.<br />
+              Our engineers and technicians handle the capture study, the design of suction ducts and the selection of the required treatment system.
+            </p>
+          </section>
+        </div>
+        <ul class="actions special" style="margin-top:20px;">
+          <li><a href="/solutions360.html" class="button alt">360º Solutions</a></li>
+        </ul>
+      </section>
+
+      <!-- Products row -->
+      <div class="row" id="products">
+        <div class="col-6 col-12-narrower">
+          <section class="box special alt">
+            <span class="image featured">
+              <img src="/images/fans-1.jpeg" alt="Industrial Fans" />
+            </span>
+            <h3>Ventilation</h3>
+            <p>We have our own range of industrial fans manufactured with technical plastics, suitable for working with highly corrosive gases under continuous service conditions.</p>
+            <ul class="actions special">
+              <li><a href="/products/fans.html" class="button alt">More information</a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="col-6 col-12-narrower">
+          <section class="box special alt">
+            <span class="image featured">
+              <img src="/images/filters-3.jpg" alt="Industrial Filters" />
+            </span>
+            <h3>Filtration</h3>
+            <p>Discover our filtration solutions for the industrial sector. We offer dust, liquid and gas filters adapted to the needs of each process and designed to meet the most stringent requirements.</p>
+            <ul class="actions special">
+              <li><a href="/products/filters.html" class="button alt">More information</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <!-- Industries -->
+      <section id="industries" class="box special features">
+
+        <div class="features-row">
+          <section>
+            <span class="icon solid major fas fa-tractor accent2"></span>
+            <h3>Agriculture, aquaculture and livestock</h3>
+            <p>Storage tanks for solids and liquids, enclosures and breeding ponds, liquid transfer, controlled product dosing, dust aspiration and filtration systems, and more.</p>
+          </section>
+          <section>
+            <span class="icon solid major fas fa-car accent3"></span>
+            <h3>Automotive industry</h3>
+            <p>Filtration of gases and particles from painting, welding, etc.</p>
+          </section>
+        </div>
+
+        <div class="features-row">
+          <section>
+            <span class="icon solid major fas fa-utensils accent4"></span>
+            <h3>Food and beverage industry</h3>
+            <p>Deodorisation of bad odour precursors and other contaminants generated throughout the processing or conversion of food products and by-products.</p>
+          </section>
+          <section>
+            <span class="icon solid major fas fa-shirt accent5"></span>
+            <h3>Textile and garment industry</h3>
+            <p>Aspiration and recovery of valuable products commonly used in the tanning industry.</p>
+          </section>
+        </div>
+
+        <div class="features-row">
+          <section>
+            <span class="icon solid major fas fa-flask accent2"></span>
+            <h3>Chemical industry</h3>
+            <p>Equipment adapted to the needs of each process and designed to meet the most stringent requirements. Use of specific high-purity materials, for ATEX atmospheres, etc.</p>
+          </section>
+          <section>
+            <span class="icon solid major fas fa-gears accent3"></span>
+            <h3>Metallurgical and machinery industry</h3>
+            <p>Control of emissions generated during part treatment processes. Extraction and filtration installations for all types of gases. Tanks and vats for surface treatment.</p>
+          </section>
+        </div>
+
+        <div class="features-row">
+          <section>
+            <span class="icon solid major fas fa-helmet-safety accent4"></span>
+            <h3>Construction</h3>
+            <p>Storage tanks, dust aspiration and filtration systems. Discharge silos, conveyor belts, etc.</p>
+          </section>
+          <section>
+            <span class="icon solid major fas fa-leaf accent5"></span>
+            <h3>Energy and green industry</h3>
+            <p>Equipment for production processes and the processing of products such as biogas and slurry.</p>
+          </section>
+        </div>
+
+      </section>
+
+      <!-- Team -->
+      <div class="row">
+        <div class="col-12">
+          <section class="box special">
+            <span class="image featured">
+              <img src="/images/team.jpg" alt="Our Team" />
+            </span>
+            <h3>Our team</h3>
+            <p>We are a team of engineers specialised in filtration systems with over 10 years of combined experience.</p>
+            <ul class="actions special">
+              <li><a href="/team.html" class="button alt">About us</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+    </section>
+    <!-- end #main -->
+
+    <!-- ══ Footer ═══════════════════════════════════════════ -->
+    <footer id="footer">
+
+      <div class="contact-block">
+        <h3>Interested on further information? Contact with us:</h3>
+        <ul>
+          <li>
+            <a href="mailto:info@ecoairplastics.com" target="_blank" rel="noopener">
+              <i class="fa fa-solid fa-envelope"></i>info@ecoairplastics.com
+            </a>
+          </li>
+          <li>
+            <a href="tel:+34937934856" target="_blank" rel="noopener">
+              <i class="fa fa-solid fa-phone"></i>(+34) 93 793 48 56
+            </a>
+          </li>
+          <li>
+            <a href="https://maps.app.goo.gl/pHCDHef4q6L6EzRz8" target="_blank" rel="noopener">
+              <i class="fa fa-solid fa-building"></i>Carrer Josep Bastús i Planas, 15<br />Sant Joan Despí
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="icons">
+        <li>
+          <a href="https://www.instagram.com/ecoairplasticssl" class="icon brands fas fa-instagram" target="_blank" rel="noopener">
+            <span class="label">Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/search/results/people/?keywords=ecoair%20plastics&origin=FACETED_SEARCH" class="icon brands fas fa-linkedin" target="_blank" rel="noopener">
+            <span class="label">LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="copyright">
+        <li><a href="/legal.html" target="_blank" rel="noopener">Legal notice (Spanish)</a></li>
+        <li>&copy; 2026 All rights reserved</li>
+        <li>Developed by <a href="https://naturnum.com" target="_blank" rel="noopener">NaturNum</a></li>
+        <li>Based on Alpha by <a href="https://pixelarity.com" target="_blank" rel="noopener">PIXELARITY</a></li>
+      </ul>
+
+    </footer>
+
+    <!-- ══ Mobile nav button ═════════════════════════════════ -->
+    <div id="navButton">
+      <a href="#navPanel" class="toggle"></a>
+    </div>
+
+    <!-- ══ Mobile nav panel ══════════════════════════════════ -->
+    <div id="navPanel">
+      <nav>
+        <a class="link depth-0" href="?lang=es"><span class="indent-0"></span><span>es</span></a>
+        <a class="link depth-0" href="?lang=en"><span class="indent-0"></span><span>en</span></a>
+        <a class="link depth-0" href="?lang=ca"><span class="indent-0"></span><span>ca</span></a>
+        <a class="link depth-0" href="#">Menu</a>
+        <a class="link depth-1" href="/index.html"><span class="indent-1"></span><span>Home</span></a>
+        <a class="link depth-1" href="/products/fans.html"><span class="indent-1"></span><span>Ventilation</span></a>
+        <a class="link depth-2" href="/products/fans/duct.html"><span class="indent-2"></span><span>Axial</span></a>
+        <a class="link depth-2" href="/products/fans/radial.html"><span class="indent-2"></span><span>Centrifugal</span></a>
+        <a class="link depth-2" href="/products/fans/roof.html"><span class="indent-2"></span><span>Roof</span></a>
+        <a class="link depth-1" href="/products/filters.html"><span class="indent-1"></span><span>Filtration</span></a>
+        <a class="link depth-2" href="/products/filters/dust.html"><span class="indent-2"></span><span>Particles</span></a>
+        <a class="link depth-2" href="/products/filters/liquid.html"><span class="indent-2"></span><span>Liquids</span></a>
+        <a class="link depth-2" href="/products/filters/air.html"><span class="indent-2"></span><span>Gases</span></a>
+        <a class="link depth-1" href="/solutions360.html"><span class="indent-1"></span><span>Solutions 360º</span></a>
+        <a class="link depth-1" href="/team.html"><span class="indent-1"></span><span>About Us</span></a>
+      </nav>
+    </div>
+
+    <!-- ══ Cookie banner ════════════════════════════════════ -->
+    <div id="cookie-banner">
+      <div class="cookie-inner">
+        <div class="cookie-text">
+          This website uses own cookies and from third parties (Google Ads) for analytical purposes.
+          You can get more information in our
+          <a href="/legal.html#politica-cookies" target="_blank" rel="noopener">Cookies Policy</a>.
+        </div>
+        <div class="cookie-actions">
+          <button id="cookie-accept">Accept all</button>
+          <button id="cookie-reject">Reject</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end #page-wrapper -->
 </Layout>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Helpers ─────────────────────────────────────── */
+  function getCookie(name: string): string | null {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) {
+      var last = parts.pop();
+      return last ? last.split(';').shift() ?? null : null;
+    }
+    return null;
+  }
+
+  function setCookie(name: string, val: string, days: number): void {
+    var maxAge = days * 24 * 60 * 60;
+    document.cookie = name + '=' + val + '; max-age=' + maxAge + '; path=/';
+  }
+
+  /* ── Cookie banner ───────────────────────────────── */
+  var cookieBanner  = document.getElementById('cookie-banner');
+  var cookieAccept  = document.getElementById('cookie-accept');
+  var cookieReject  = document.getElementById('cookie-reject');
+
+  if (cookieBanner) {
+    var _banner = cookieBanner;
+    if (!getCookie('cookie-consent')) {
+      _banner.style.display = 'block';
+    }
+
+    if (cookieAccept) {
+      cookieAccept.addEventListener('click', function () {
+        _banner.style.display = 'none';
+        setCookie('cookie-consent', 'accepted', 365);
+      });
+    }
+
+    if (cookieReject) {
+      cookieReject.addEventListener('click', function () {
+        _banner.style.display = 'none';
+        setCookie('cookie-consent', 'rejected', 365);
+      });
+    }
+  }
+
+  /* ── Header scroll behaviour ─────────────────────── */
+  var headerEl  = document.getElementById('header');
+  var bannerEl  = document.getElementById('banner');
+  var scrolled  = false;
+
+  if (headerEl && bannerEl) {
+    var _header      = headerEl;
+    var bannerHeight = bannerEl.offsetHeight;
+
+    window.addEventListener('scroll', function () {
+      var scrollTop = window.pageYOffset
+        || document.documentElement.scrollTop
+        || document.body.scrollTop
+        || 0;
+
+      if (scrollTop >= bannerHeight) {
+        if (!scrolled) {
+          scrolled = true;
+          _header.classList.remove('alt');
+          _header.classList.add('reveal');
+        }
+      } else {
+        if (scrolled) {
+          scrolled = false;
+          _header.classList.add('alt');
+          _header.classList.remove('reveal');
+        }
+      }
+    });
+  }
+
+  /* ── Desktop dropdown menu ───────────────────────── */
+  function closeAllDropdowns(): void {
+    var drops = document.querySelectorAll<HTMLElement>('.dropotron');
+    for (var i = 0; i < drops.length; i++) {
+      drops[i].classList.remove('open');
+    }
+  }
+
+  var openers = document.querySelectorAll<HTMLElement>('#nav .li-opener');
+  for (var i = 0; i < openers.length; i++) {
+    (function (opener: HTMLElement) {
+      opener.addEventListener('click', function (e: Event) {
+        e.stopPropagation();
+        var drop = opener.querySelector<HTMLElement>('.dropotron');
+        if (drop) {
+          var wasOpen = drop.classList.contains('open');
+          closeAllDropdowns();
+          if (!wasOpen) drop.classList.add('open');
+        }
+      });
+    })(openers[i]);
+  }
+
+  document.addEventListener('click', function () {
+    closeAllDropdowns();
+  });
+
+  /* ── Mobile nav panel ────────────────────────────── */
+  var navButton = document.getElementById('navButton');
+  var navPanel  = document.getElementById('navPanel');
+  var body      = document.body;
+
+  if (navButton) {
+    var toggle = navButton.querySelector<HTMLElement>('.toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function (e: Event) {
+        e.preventDefault();
+        e.stopPropagation();
+        body.classList.toggle('navPanel-visible');
+      });
+    }
+  }
+
+  document.addEventListener('click', function (e: MouseEvent) {
+    if (body.classList.contains('navPanel-visible')) {
+      var target = e.target as Node | null;
+      var panelNode  = navPanel  as Node | null;
+      var buttonNode = navButton as Node | null;
+      if (
+        panelNode  && !panelNode.contains(target) &&
+        buttonNode && !buttonNode.contains(target)
+      ) {
+        body.classList.remove('navPanel-visible');
+      }
+    }
+  });
+
+  if (navPanel) {
+    navPanel.addEventListener('click', function (e: Event) {
+      e.stopPropagation();
+    });
+  }
+
+})();
+</script>
